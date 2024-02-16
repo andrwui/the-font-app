@@ -1,0 +1,24 @@
+@import url("./fonts/geist.css");
+@import url("./fonts/geist-mono.css");
+@import url("./colors.css");
+
+/* Import TailwindCSS  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply global styles */
+* {
+  @apply outline-none;
+  @apply font-geist;
+  @apply select-none;
+  @apply antialiased;
+}
+
+body {
+  @apply w-screen;
+  @apply h-screen;
+  @apply text-foreground;
+  @apply bg-background;
+}
+

@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Medium.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Black.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Light.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-SemiBold.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Regular.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Thin.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-UltraLight.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-UltraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist UltraBlack';
+    src: url('/assets/fonts/Geist/Geist-UltraBlack.woff2') format('woff2'),
+        url('/assets/fonts/Geist/Geist-UltraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

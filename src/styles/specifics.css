@@ -1,0 +1,61 @@
+@import url('./colors.css');
+/* Specific styles, for commodities tailwind cannot give */
+
+
+/* Style for dragging the application window through the element that has this class applied */
+.webkit_app-drag{
+  -webkit-app-region: drag;
+}
+
+.webkit_app-drag *{
+  -webkit-app-region: no-drag;
+}
+
+.center-absolute{
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+/* Disable scrollbar */
+::-webkit-scrollbar{
+  display: none;
+}
+
+
+
+/* Global styles for range inputs, because I wanted to style them */
+input[type="range"] {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  background: var(--secondary-mid);
+  width: 100%;
+  outline: none;
+  height: 6px;
+  border-radius: 5px;
+
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  background: transparent;
+  appearance: none;
+  -moz-appearance: none;
+  margin-top: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+
+.disable-transitions *, .disable-transitions *::before, .disable-transitions *::after {
+  transition: none !important;
+  animation: none !important;
+}

@@ -1,0 +1,29 @@
+:root{
+  --geist: 'Geist', sans-serif;
+  --geist-mono: 'Geist Mono', monospace;
+  
+  /* Top bar mantains colors regarding the applied theme. */
+  --off-white: #eeeeee;
+  --off-black: #0d0d0d;
+  --disabled: #2c2c2c70;
+  
+  --bar-search-border: #1a1a1a;
+  --bar-search-input: var(--off-black);
+  --bar-background: #080808;
+  --bar-foreground: var(--off-white);
+  
+  --background: var(--off-black);
+  --foreground: var(--off-white);
+  --secondary-light: #6f6f6f;
+  --secondary-mid: #1a1a1a;
+  --secondary-dark: #111111;
+}
+.light {
+  
+  --background: var(--off-white);
+  --foreground: var(--off-black);
+  --secondary-dark: #e1e1e1;
+  --secondary-mid: #c8c8c8;
+  --secondary-light: #7E7E7E;
+
+}

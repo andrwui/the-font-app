@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Regular.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Light.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Medium.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-SemiBold.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Black.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono UltraBlack';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-UltraBlack.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-UltraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-Thin.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/assets/fonts/Geist-Mono/GeistMono-UltraLight.woff2') format('woff2'),
+        url('/assets/fonts/Geist-Mono/GeistMono-UltraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
