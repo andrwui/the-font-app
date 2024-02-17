@@ -1,21 +1,46 @@
 import { useState, type ReactElement, type ChangeEvent } from 'react'
+import Text from './Text'
 
-const Switch = (): ReactElement => {
-  const [isChecked, setIsChecked] = useState(true)
+const Switch = ({
+  onChange,
+  value,
+  label,
+}: {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  value: boolean
+  label?: string
+}): ReactElement => {
+  const [isChecked, setIsChecked] = useState(value)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setIsChecked(e.target.checked)
+    onChange(e)
   }
 
   return (
-    <div>
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={handleChange}
-      />
-      <span></span>
-    </div>
+    <label className="flex w-max items-center gap-4">
+      <label
+        className="relative block h-7 w-12 cursor-pointer rounded-full bg-bar-background transition-all duration-150"
+        style={{
+          background: isChecked ? 'var(--foreground)' : 'var(--secondary-mid)',
+        }}
+      >
+        <input
+          className="appearance-none"
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleChange}
+        />
+        <span
+          className="absolute top-[50%] aspect-square h-5/6 translate-y-[-50%] rounded-full bg-foreground transition-all duration-150"
+          style={{
+            background: isChecked ? 'var(--background)' : 'var(--background)',
+            left: isChecked ? '47%' : '6%',
+          }}
+        ></span>
+      </label>
+      {label && typeof label === 'string' ? <Text size={18}>{label}</Text> : label}
+    </label>
   )
 }
 export default Switch

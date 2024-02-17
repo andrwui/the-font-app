@@ -25,7 +25,7 @@ const Cycler = ({ options, onClick, tooltip }: CyclerProps): ReactElement => {
   return tooltip ? (
     <Tooltip text={tooltip}>
       <div
-        className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-mid text-foreground transition-all duration-[25] active:scale-[.9]"
+        className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-dark text-foreground transition-all duration-[25] active:scale-[.9]"
         onClick={handleClick}
       >
         {options[currentIndex].icon}
@@ -33,7 +33,7 @@ const Cycler = ({ options, onClick, tooltip }: CyclerProps): ReactElement => {
     </Tooltip>
   ) : (
     <div
-      className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-mid text-foreground transition-all duration-[25] active:scale-[.9]"
+      className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-dark text-foreground transition-all duration-[25] active:scale-[.9]"
       onClick={handleClick}
     >
       {options[currentIndex].icon}

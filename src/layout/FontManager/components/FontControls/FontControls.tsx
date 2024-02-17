@@ -82,7 +82,7 @@ const FontControls = (): ReactElement => {
         <Cycler
           options={italicOptions}
           onClick={setItalic}
-          tooltip="Italic font"
+          tooltip="Italic"
         />
         <Cycler
           options={alignOptions}

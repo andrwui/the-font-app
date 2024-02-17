@@ -10,10 +10,16 @@ const Sidebar = (): ReactElement => {
       id="sidebar"
       className=" relative z-10 col-span-1 row-span-2 flex h-full w-full flex-col items-center justify-start gap-5 bg-bar-background p-4"
     >
-      <LocationLink to="/font-viewer/local" tooltip="Local Fonts">
+      <LocationLink
+        to="/font-viewer/local"
+        tooltip="Local Fonts"
+      >
         <AiFillHome />
       </LocationLink>
-      <LocationLink to="/settings" tooltip="Settings">
+      <LocationLink
+        to="/settings"
+        tooltip="Settings"
+      >
         <IoIosSettings />
       </LocationLink>
     </div>

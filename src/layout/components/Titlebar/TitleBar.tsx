@@ -12,7 +12,6 @@ const TitleBar = (): ReactElement => {
       className="webkit_app-drag relative z-10 col-span-2 row-span-1 flex justify-end bg-bar-background"
     >
       <SearchBar />
-      <ThemeSwitcher />
     </div>
   )
 }

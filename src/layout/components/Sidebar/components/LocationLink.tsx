@@ -24,7 +24,12 @@ const LocationLink = ({
 
   const isCurrentRoute = baseRoute === route
   return (
-    <Tooltip direction="right" text={tooltip} className="w-full">
+    <Tooltip
+      direction="right"
+      text={tooltip}
+      className="w-full"
+      delay={550}
+    >
       <Link
         to={to}
         className={`grid aspect-square w-full place-items-center rounded-md *:h-2/3 *:w-2/3

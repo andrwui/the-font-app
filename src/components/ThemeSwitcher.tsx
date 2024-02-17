@@ -1,23 +1,36 @@
 import Text from 'components/Text'
-import { type ReactElement } from 'react'
+import { useState, type ChangeEvent, type ReactElement, useEffect } from 'react'
+import Switch from './Switch'
 
 const ThemeSwitcher = (): ReactElement => {
-  const handleChangeTheme = (): void => {
+  const [darkTheme, setDarkTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('dark-mode')
+    return savedTheme === 'true'
+  })
+
+  useEffect(() => {
     const rootElement = document.documentElement
 
-    rootElement.classList.add('disable-transitions')
+    if (darkTheme) {
+      rootElement.classList.remove('light')
+    } else {
+      rootElement.classList.add('light')
+    }
+  }, [darkTheme])
 
-    rootElement.classList.toggle('light')
+  const handleChangeTheme = (e: ChangeEvent<HTMLInputElement>): void => {
+    const isChecked = e.target.checked
+    setDarkTheme(isChecked)
 
-    setTimeout(() => {
-      rootElement.classList.remove('disable-transitions')
-    }, 0)
+    localStorage.setItem('dark-mode', isChecked.toString())
   }
 
   return (
-    <Text className="mr-40 text-bar-foreground" onClick={handleChangeTheme}>
-      change theme
-    </Text>
+    <Switch
+      onChange={handleChangeTheme}
+      value={darkTheme}
+      label="Dark mode"
+    ></Switch>
   )
 }
 

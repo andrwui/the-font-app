@@ -60,6 +60,12 @@ const Tooltip = ({
   )
 }
 
+interface AnimationProps {
+  x?: number
+  y?: number
+  opacity?: number
+}
+
 Tooltip.Tooltip = ({
   text,
   isVisible,
@@ -77,27 +83,40 @@ Tooltip.Tooltip = ({
     translate: '-50% -120%',
   }
 
+  let animation: AnimationProps = { opacity: 0, y: 20 }
+
   switch (direction) {
+    case 'top':
+      styles = {
+        bottom: '100%',
+        left: '50%',
+        translate: '-50% -20%',
+      }
+      animation = { opacity: 0, y: 20 }
+      break
     case 'down':
       styles = {
         top: '100%',
         left: '50%',
         translate: '-50% 20%',
       }
+      animation = { opacity: 0, y: -20 }
       break
     case 'right':
       styles = {
         top: '50%',
-        right: '0%',
-        translate: '105% -50%',
+        left: '100%',
+        translate: '20% -50%',
       }
+      animation = { opacity: 0, x: -20 }
       break
     case 'left':
       styles = {
         top: '50%',
-        left: '0%',
-        translate: '-105% -50%',
+        right: '100%',
+        translate: '-20% -50%',
       }
+      animation = { opacity: 0, x: 20 }
       break
   }
 
@@ -105,18 +124,13 @@ Tooltip.Tooltip = ({
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
+          initial={animation}
           animate={{
             opacity: 1,
             y: 0,
+            x: 0,
           }}
-          exit={{
-            opacity: 0,
-            y: -20,
-          }}
+          exit={animation}
           transition={{
             duration: 0.1,
           }}
@@ -128,7 +142,6 @@ Tooltip.Tooltip = ({
           {
             <Text
               size={13}
-              wrap
               lineHeight={'15'}
             >
               {text}

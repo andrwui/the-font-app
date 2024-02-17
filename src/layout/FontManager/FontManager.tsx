@@ -5,7 +5,7 @@ import LocalFontManager from './vendors/local/LocalFontManager'
 import { Route, Routes } from 'react-router-dom'
 const FontViewer = (): ReactElement => {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full w-full flex-col">
       <FontControls />
       <Routes>
         <Route

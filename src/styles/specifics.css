@@ -29,7 +29,7 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   cursor: pointer;
-  background: var(--secondary-mid);
+  background: var(--secondary-dark);
   width: 100%;
   outline: none;
   height: 6px;
@@ -54,8 +54,3 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: 2px solid transparent;
 }
 
-
-.disable-transitions *, .disable-transitions *::before, .disable-transitions *::after {
-  transition: none !important;
-  animation: none !important;
-}
