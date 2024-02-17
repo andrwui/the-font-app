@@ -8,11 +8,6 @@ const Settings = (): ReactElement => {
     <div className="flex w-1/2 flex-col gap-10 py-3">
       <Text size={32}>Settings</Text>
       <ThemeSwitcher />
-      <Switch />
-      <Switch />
-      <Switch />
-      <Switch />
-      <Switch />
     </div>
   )
 }

@@ -10,9 +10,6 @@ import ContextMenu from 'components/ContextMenu'
 const App = (): ReactElement => {
   // The main App component just renders the layout wrapped on the ThemeUI Provider
   // Enables custom devtools if in dev mode
-  if (window.DEV_ENV) {
-    useDevTools()
-  }
 
   useKeybinds()
 
