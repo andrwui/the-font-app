@@ -1,5 +1,4 @@
-import Text from 'components/Text'
-import { useState, type ChangeEvent, type ReactElement, useEffect } from 'react'
+import { type ChangeEvent, type ReactElement } from 'react'
 import Switch from './Switch'
 import useThemeStore from 'stores/SettingsStore'
 

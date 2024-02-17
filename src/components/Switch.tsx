@@ -18,7 +18,7 @@ const Switch = ({
   }
 
   return (
-    <label className="flex w-max items-center gap-4">
+    <label className="flex w-max cursor-pointer items-center gap-4">
       <label
         className="relative block h-5 w-10 cursor-pointer rounded-full bg-bar-background transition-all duration-150"
         style={{

@@ -1,7 +1,8 @@
 :root{
   --geist: 'Geist', sans-serif;
   --geist-mono: 'Geist Mono', monospace;
-  
+  --fallback: 'Blank';
+
   /* Top bar mantains colors regarding the applied theme. */
   --off-white: #eeeeee;
   --off-black: #0d0d0d;

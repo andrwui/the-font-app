@@ -19,11 +19,20 @@ const FontName = ({ font }: FontNameProps): ReactElement => {
       className="flex items-center  gap-1 font-light text-secondary-light"
       style={{ justifyContent: textAlign }}
     >
-      <Text weight="300" size={13}>
+      <Text
+        weight="300"
+        size={13}
+      >
         {font.name}
       </Text>
-      <Tooltip text={font.variants.join(', ')} direction="top">
-        <Text weight="600" size={13}>
+      <Tooltip
+        text={font.variants.join(', ')}
+        direction="top"
+      >
+        <Text
+          weight="600"
+          size={13}
+        >
           {font.variants.length}
         </Text>
       </Tooltip>
