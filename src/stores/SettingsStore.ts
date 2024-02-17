@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 
 interface ThemeStore {
-  light: boolean
-  setLightTheme: (light: boolean) => void
+  darkTheme: boolean
+  setDarkTheme: (darkTheme: boolean) => void
 }
 
 export const useThemeStore = create<ThemeStore>(set => ({
-  light: true,
-  setLightTheme: light => set({ light }),
+  darkTheme: true,
+  setDarkTheme: darkTheme => set({ darkTheme }),
 }))
 
 export default useThemeStore
