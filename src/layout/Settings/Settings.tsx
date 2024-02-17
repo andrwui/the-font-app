@@ -1,4 +1,3 @@
-import Switch from 'components/Switch'
 import Text from 'components/Text'
 import ThemeSwitcher from 'components/ThemeSwitcher'
 import { type ReactElement } from 'react'
