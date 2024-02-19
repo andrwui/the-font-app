@@ -1,6 +1,6 @@
 import { type ChangeEvent, type ReactElement } from 'react'
 import Switch from './Switch'
-import useThemeStore from 'stores/SettingsStore'
+import { useThemeStore } from 'stores/SettingsStore'
 
 const ThemeSwitcher = (): ReactElement => {
   const { darkTheme, setDarkTheme } = useThemeStore()

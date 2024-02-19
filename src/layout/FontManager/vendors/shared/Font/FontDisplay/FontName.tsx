@@ -2,7 +2,7 @@ import { useTextAlignStore } from 'stores/FontControlsStore'
 import type { TFont } from 'types/FontTypes'
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
-import Tooltip from 'components/Tooltip'
+import FavoriteButton from './FavoriteButton'
 interface FontNameProps {
   font: TFont
 }
@@ -16,26 +16,24 @@ const FontName = ({ font }: FontNameProps): ReactElement => {
 
   return (
     <div
-      className="flex items-center  gap-1 font-light text-secondary-light"
+      className="flex items-center  gap-4 font-light text-secondary-light"
       style={{ justifyContent: textAlign }}
     >
-      <Text
-        weight="300"
-        size={13}
-      >
-        {font.name}
-      </Text>
-      <Tooltip
-        text={font.variants.join(', ')}
-        direction="top"
-      >
+      <div className="flex items-center gap-1 font-light text-secondary-light">
+        <Text
+          weight="300"
+          size={13}
+        >
+          {font.name}
+        </Text>
         <Text
           weight="600"
           size={13}
         >
           {font.variants.length}
         </Text>
-      </Tooltip>
+      </div>
+      <FavoriteButton font={font.name} />
     </div>
   )
 }

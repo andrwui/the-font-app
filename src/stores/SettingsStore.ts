@@ -10,4 +10,14 @@ export const useThemeStore = create<ThemeStore>(set => ({
   setDarkTheme: darkTheme => set({ darkTheme }),
 }))
 
-export default useThemeStore
+interface FavoritesStore {
+  favorites: string[]
+  setFavorites: (favorites: string[]) => void
+}
+
+export const useFavoritesStore = create<FavoritesStore>(set => ({
+  favorites: [] as string[],
+  setFavorites: (favorites: string[]) => {
+    set({ favorites })
+  },
+}))

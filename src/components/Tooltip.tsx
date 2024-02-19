@@ -134,7 +134,7 @@ Tooltip.Tooltip = ({
           transition={{
             duration: 0.1,
           }}
-          className="text-13 pointer-events-none absolute z-[10000] w-max max-w-36 text-wrap rounded-md bg-secondary-dark px-2 py-1 text-center shadow-md"
+          className="text-13 pointer-events-none absolute z-auto w-max max-w-40 text-wrap rounded-md bg-secondary-dark px-2 py-1 text-center text-foreground shadow-md"
           style={{
             ...styles,
           }}

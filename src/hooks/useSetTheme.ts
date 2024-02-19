@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import useThemeStore from 'stores/SettingsStore'
+import { useThemeStore } from 'stores/SettingsStore'
 
 const useTheme = (): void => {
   const { darkTheme, setDarkTheme } = useThemeStore()
