@@ -3,7 +3,11 @@ import ReplaceBar from './components/ReplaceBar'
 import FontControls from './components/FontControls/FontControls'
 import LocalFontManager from './vendors/local/LocalFontManager'
 import { Route, Routes } from 'react-router-dom'
+import useLoadFavorites from 'hooks/useLoadFavorites'
+
 const FontViewer = (): ReactElement => {
+  useLoadFavorites()
+
   return (
     <div className="flex h-full w-full flex-col">
       <FontControls />
