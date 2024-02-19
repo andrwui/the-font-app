@@ -77,8 +77,8 @@ const FontControls = (): ReactElement => {
   // The non-numeric (Boolean) values, are managed by the generic Checkboxes (See Generics > Checkbox to see how it works).
 
   return (
-    <div className="z-auto flex h-max w-full flex-col items-center justify-start gap-0 bg-background px-8 md:h-[60px] md:flex-row md:justify-start md:gap-10">
-      <div className="flex gap-10">
+    <div className="flex h-max w-full flex-col items-center justify-start bg-background px-8 py-4 lg:h-[60px] lg:flex-row lg:justify-start lg:gap-10">
+      <div className="mb-4 flex gap-10 lg:mb-0">
         <Cycler
           options={italicOptions}
           onClick={setItalic}
