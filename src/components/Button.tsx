@@ -4,6 +4,7 @@ interface ButtonProps {
   className?: string
   style?: CSSProperties
   animated?: boolean
+  danger?: boolean
 
   children: ReactNode
   onClick: () => void
@@ -15,6 +16,7 @@ const Button = ({
   children,
   onClick,
   animated,
+  danger,
 }: ButtonProps): ReactElement => {
   return (
     <button
@@ -22,9 +24,11 @@ const Button = ({
         ...style,
       }}
       onClick={onClick}
-      className={`${className} rounded-md bg-foreground p-2 ${
-        animated ? 'transition-all duration-75 active:scale-[0.8]' : ''
-      }`}
+      className={`${className}
+      ${animated ? 'transition-all duration-75 active:scale-[0.95]' : ''}
+      ${danger ? 'bg-red-700 text-white' : ''}
+      text-bold rounded-md bg-foreground p-2 text-background
+    `}
     >
       {children}
     </button>
