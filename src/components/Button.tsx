@@ -5,6 +5,7 @@ interface ButtonProps {
   style?: CSSProperties
   animated?: boolean
   danger?: boolean
+  warn?: boolean
 
   children: ReactNode
   onClick: () => void
@@ -17,6 +18,7 @@ const Button = ({
   onClick,
   animated,
   danger,
+  warn,
 }: ButtonProps): ReactElement => {
   return (
     <button
@@ -27,6 +29,7 @@ const Button = ({
       className={`${className}
       ${animated ? 'transition-all duration-75 active:scale-[0.95]' : ''}
       ${danger ? 'bg-red-700 text-white' : ''}
+      ${warn ? 'bg-yellow-600 text-white' : ''}
       text-bold rounded-md bg-foreground p-2 text-background
     `}
     >

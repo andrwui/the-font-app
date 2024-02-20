@@ -15,7 +15,7 @@ const Settings = (): ReactElement => {
         className="w-40"
         animated
         onClick={resetFavorites}
-        danger
+        warn
       >
         Reset favorites
       </Button>
