@@ -7,6 +7,8 @@ import { type ContextMenuOption } from 'components/ContextMenu'
 import useContextMenu from 'hooks/useContextMenu'
 import Text from 'components/Text'
 import { FaStar } from 'react-icons/fa'
+import Tooltip from 'components/Tooltip'
+import useFavorites from 'hooks/useFavorites'
 
 interface TFontProps {
   font: TFont
@@ -14,7 +16,9 @@ interface TFontProps {
 
 const Font = ({ font }: TFontProps): ReactElement => {
   const { size } = useSizeStore()
+  const { isFavorite, toggleFavorite } = useFavorites(font.name)
   const fontRef = useRef<HTMLDivElement>(null)
+
   // Returns a wrapper for the FontName and FontDisplay elements.
 
   // Uses the stored size of the fonts to calculate its height, this was done for spacing purposes.
@@ -28,14 +32,34 @@ const Font = ({ font }: TFontProps): ReactElement => {
           size={13}
           weight="500"
         >
-          Add to favorites
+          {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         </Text>
       ),
       icon: <FaStar className="size-[15px] " />,
       action: () => {
+        toggleFavorite()
+      },
+    },
+    {
+      text: (
+        <Text
+          size={13}
+          weight="500"
+        >
+          Available glyphs
+        </Text>
+      ),
+      icon: (
+        <Text
+          size={13}
+          weight="800"
+        >
+          Aa
+        </Text>
+      ),
+      action: () => {
         console.log(`${font.name} added to favorites`)
       },
-      feedback: 'danger',
     },
   ]
 

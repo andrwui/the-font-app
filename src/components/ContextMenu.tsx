@@ -90,7 +90,7 @@ const ContextMenu = (): ReactElement | null => {
                 }}
                 className=" flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-secondary-mid"
               >
-                {option.icon}
+                <div className="flex w-5 items-center justify-center">{option.icon}</div>
 
                 {typeof option.text === 'string' ? (
                   <Text
