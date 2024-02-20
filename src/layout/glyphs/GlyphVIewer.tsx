@@ -12,6 +12,10 @@ const GlyphViewer = (): ReactElement => {
     setCurrentGlyph(char)
   }
 
+  // TODO: Figure out design, currently is ugly
+  // TODO: Add italic switch
+  // TODO: Refactor into components
+
   return (
     <div className="grid size-full grid-cols-2">
       <div
@@ -22,18 +26,23 @@ const GlyphViewer = (): ReactElement => {
       >
         {currentGlyph}
       </div>
-      <div className="grid size-full grid-cols-6 gap-5 overflow-scroll p-5">
+      <div className="grid size-full grid-cols-7 overflow-scroll">
         {allLatinChars.map((char: string, key: number) => {
           return (
             <div
               key={key}
               onMouseOver={() => handleMouseOver(char)}
-              className="grid aspect-square w-full place-items-center rounded-md border-2 border-secondary-dark text-5xl"
-              style={{
-                fontFamily: font,
-              }}
+              className="grid aspect-square w-full place-items-center border border-secondary-mid text-5xl transition-colors duration-150 hover:bg-foreground hover:text-background"
             >
-              {char}
+              {
+                <Text
+                  style={{
+                    fontFamily: font,
+                  }}
+                >
+                  {char}
+                </Text>
+              }
             </div>
           )
         })}
