@@ -7,14 +7,15 @@ import { type ContextMenuOption } from 'components/ContextMenu'
 import useContextMenu from 'hooks/useContextMenu'
 import Text from 'components/Text'
 import { FaStar } from 'react-icons/fa'
-import Tooltip from 'components/Tooltip'
 import useFavorites from 'hooks/useFavorites'
+import { useNavigate } from 'react-router-dom'
 
 interface TFontProps {
   font: TFont
 }
 
 const Font = ({ font }: TFontProps): ReactElement => {
+  const navigate = useNavigate()
   const { size } = useSizeStore()
   const { isFavorite, toggleFavorite } = useFavorites(font.name)
   const fontRef = useRef<HTMLDivElement>(null)
@@ -46,7 +47,7 @@ const Font = ({ font }: TFontProps): ReactElement => {
           size={13}
           weight="500"
         >
-          Available glyphs
+          Test font Glyphs
         </Text>
       ),
       icon: (
@@ -58,7 +59,7 @@ const Font = ({ font }: TFontProps): ReactElement => {
         </Text>
       ),
       action: () => {
-        console.log(`${font.name} added to favorites`)
+        navigate(`/glyphs?font=${font.name}`, { replace: true })
       },
     },
   ]

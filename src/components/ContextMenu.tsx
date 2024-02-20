@@ -34,6 +34,11 @@ const ContextMenu = (): ReactElement | null => {
     }
   }, [isVisible, hideMenu])
 
+  const handleClick = (option: ContextMenuOption): void => {
+    option.action()
+    hideMenu()
+  }
+
   const menuVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -84,10 +89,7 @@ const ContextMenu = (): ReactElement | null => {
                 initial="initial"
                 animate="animate"
                 transition={{ delay: index * 0.05 }}
-                onClick={() => {
-                  option.action()
-                  hideMenu()
-                }}
+                onClick={() => handleClick(option)}
                 className=" flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-secondary-mid"
               >
                 <div className="flex w-5 items-center justify-center">{option.icon}</div>
