@@ -189,7 +189,7 @@ Slider.InputValue = ({
       onChange={handleInputChange}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      className=" w-[50px] bg-transparent text-center text-sm text-foreground"
+      className=" w-[50px] bg-transparent text-center text-sm text-regular"
     />
   )
 }
@@ -252,13 +252,13 @@ Slider.RangeInput = ({
         step={step}
       />
       <span
-        className="pointer-events-none absolute left-0 top-1/2 z-10 h-1/3 translate-y-[-50%] rounded-md bg-foreground transition-none duration-150 ease-linear"
+        className="pointer-events-none absolute left-0 top-1/2 z-10 h-1/3 translate-y-[-50%] rounded-md bg-accent transition-none duration-150 ease-linear"
         style={{
           width: `${progress}%`,
         }}
       />
       <span
-        className="pointer-events-none absolute top-1/2 z-20 aspect-square h-4 translate-y-[-50%] cursor-pointer appearance-none rounded-full border-2 border-solid border-foreground bg-background transition-none duration-150 ease-linear"
+        className="pointer-events-none absolute top-1/2 z-20 aspect-square h-4 translate-y-[-50%] cursor-pointer appearance-none rounded-full border-2 border-solid border-accent bg-dark transition-none duration-150 ease-linear"
         style={{
           left: `${calculateThumbPosition}%`,
         }}

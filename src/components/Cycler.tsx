@@ -1,8 +1,10 @@
 import { useState, type ReactElement } from 'react'
 import Tooltip from './Tooltip'
+import Text from './Text'
 
 export interface CyclerOption {
   icon: ReactElement
+  text?: string
   value: string | number
 }
 
@@ -22,21 +24,26 @@ const Cycler = ({ options, onClick, tooltip }: CyclerProps): ReactElement => {
     onClick(options[nextIndex].value)
   }
 
+  const classNames =
+    'flex h-[40px] w-[130px] cursor-pointer items-center justify-center gap-1 rounded-md bg-dark text-regular transition-all duration-[25] active:scale-[.9]'
+
   return tooltip ? (
     <Tooltip text={tooltip}>
       <div
-        className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-dark text-foreground transition-all duration-[25] active:scale-[.9]"
+        className={classNames}
         onClick={handleClick}
       >
         {options[currentIndex].icon}
+        {options[currentIndex].text && <Text>{options[currentIndex].text}</Text>}
       </div>
     </Tooltip>
   ) : (
     <div
-      className="grid h-[30px] w-[30px] cursor-pointer place-items-center rounded-md bg-secondary-dark text-foreground transition-all duration-[25] active:scale-[.9]"
+      className={classNames}
       onClick={handleClick}
     >
       {options[currentIndex].icon}
+      {options[currentIndex].text && <Text>{options[currentIndex].text}</Text>}
     </div>
   )
 }

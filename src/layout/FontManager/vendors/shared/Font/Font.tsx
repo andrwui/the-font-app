@@ -69,7 +69,7 @@ const Font = ({ font }: TFontProps): ReactElement => {
   return (
     <div
       ref={fontRef}
-      className="flex h-max w-full flex-col justify-center gap-2 px-8"
+      className="flex h-max w-full flex-col justify-center gap-2"
       style={{
         paddingBottom: `${size * 0.5}px`,
       }}

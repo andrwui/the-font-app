@@ -32,14 +32,11 @@ const LocationLink = ({
     >
       <Link
         to={to}
-        className={`grid aspect-square w-full place-items-center rounded-md *:h-2/3 *:w-2/3
-        ${isCurrentRoute ? 'text-off-black' : 'text-bar-foreground'}
-        ${isCurrentRoute ? 'bg-bar-foreground' : 'bg-off-black'}
-        ${!isCurrentRoute ? 'hover:bg-bar-search-border' : ''}
+        className={`grid aspect-square place-items-center rounded-md *:h-3/5 *:w-3/5 transition-all duration-75
+        ${isCurrentRoute ? 'text-accent' : 'text-regular'}
+        ${isCurrentRoute ? 'bg-accent' : 'bg-dark'}
+        ${!isCurrentRoute ? 'hover:bg-light' : ''}
         ${className ? className : ''} `}
-        // className={`grid h-[40px] w-[40px] place-items-center rounded-md text-bar-background *:h-2/3 *:w-2/3  hover:bg-bar-search-border ${
-        //   className ? className : ''
-        // } `}
         style={{
           ...style,
         }}

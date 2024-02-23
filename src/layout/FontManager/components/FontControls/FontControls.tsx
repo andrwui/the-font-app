@@ -17,6 +17,7 @@ import { FaAlignCenter, FaAlignLeft, FaAlignRight } from 'react-icons/fa'
 import IFontSize from './icons/font_size.svg?react'
 import IFontWeight from './icons/font_weight.svg?react'
 import ILetterSpacing from './icons/letter_spacing.svg?react'
+import SearchButton from './components/SearchButton'
 
 const FontControls = (): ReactElement => {
   // Declare all the stores
@@ -47,26 +48,31 @@ const FontControls = (): ReactElement => {
 
   const italicOptions: CyclerOption[] = [
     {
-      icon: <RxFontRoman className="size-full" />,
+      icon: <RxFontRoman className="size-[30px]" />,
+      text: 'Regular',
       value: '',
     },
     {
-      icon: <RxFontItalic className="size-full" />,
+      icon: <RxFontItalic className="size-[30px]" />,
+      text: 'Italic',
       value: 'italic',
     },
   ]
 
   const alignOptions: CyclerOption[] = [
     {
-      icon: <FaAlignLeft className="size-2/3" />,
+      icon: <FaAlignLeft className="size-[20px]" />,
+      text: 'Left',
       value: 'left',
     },
     {
-      icon: <FaAlignCenter className="size-2/3" />,
+      icon: <FaAlignCenter className="size-[20px]" />,
+      text: 'Center',
       value: 'center',
     },
     {
-      icon: <FaAlignRight className="size-2/3" />,
+      icon: <FaAlignRight className="size-[20px]" />,
+      text: 'Right',
       value: 'right',
     },
   ]
@@ -77,12 +83,13 @@ const FontControls = (): ReactElement => {
   // The non-numeric (Boolean) values, are managed by the generic Checkboxes (See Generics > Checkbox to see how it works).
 
   return (
-    <div className="flex h-max w-full flex-col items-center justify-start bg-background px-8 py-4 lg:h-[60px] lg:flex-row lg:justify-start lg:gap-10">
-      <div className="mb-4 flex gap-10 lg:mb-0">
+    <div className="flex h-max w-full flex-col items-center justify-start bg-background lg:h-max lg:flex-row lg:justify-start lg:gap-10 pb-3">
+      <div className="mb-4 flex gap-3 lg:mb-0">
+        <SearchButton />
         <Cycler
           options={italicOptions}
           onClick={setItalic}
-          tooltip="Italic"
+          tooltip="Font style"
         />
         <Cycler
           options={alignOptions}
@@ -93,7 +100,7 @@ const FontControls = (): ReactElement => {
       <Slider
         className="w-1/4"
         showValue
-        label={<IFontSize className="*:fill-foreground" />}
+        label={<IFontSize className="*:fill-accent" />}
         min="20"
         step="5"
         max="200"
@@ -106,7 +113,7 @@ const FontControls = (): ReactElement => {
       <Slider
         className="w-1/4"
         showValue
-        label={<IFontWeight className="*:fill-foreground" />}
+        label={<IFontWeight className="*:fill-accent" />}
         min="100"
         max="1000"
         step="100"
@@ -118,13 +125,13 @@ const FontControls = (): ReactElement => {
       <Slider
         className="w-1/4"
         showValue
-        label={<ILetterSpacing className="*:fill-foreground" />}
+        label={<ILetterSpacing className="*:fill-accent" />}
         min="-5"
         max="20"
         step="1"
         reset={resetLetterSpacing}
         value={String(letterSpacing)}
-        unit="pt"
+        unit="px"
         onChange={handleLetterSpacingChange}
         tooltip="Letter spacing"
       />

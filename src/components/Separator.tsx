@@ -9,7 +9,7 @@ const Separator = ({
 }): ReactElement => {
   return (
     <div
-      className={`h-[1px] w-full bg-secondary-light bg-opacity-10 ${className}`}
+      className={`h-[1px] w-full bg-light bg-opacity-10 ${className}`}
       style={{ ...style }}
     />
   )

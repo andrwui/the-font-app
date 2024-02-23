@@ -62,7 +62,7 @@ const ContextMenu = (): ReactElement | null => {
           exit={'exit'}
           transition={{ duration: 0.1 }}
           ref={menuRef}
-          className="absolute z-50 flex w-max flex-col items-center gap-2 rounded-md bg-secondary-dark p-2"
+          className="absolute z-50 flex w-max flex-col items-center gap-2 rounded-md bg-dark p-2"
           style={{ top: `${position.y}px`, left: `${position.x}px` }}
         >
           {title && (
@@ -73,7 +73,7 @@ const ContextMenu = (): ReactElement | null => {
               animate="animate"
             >
               <Text
-                className="text-secondary-light"
+                className="text-disabled"
                 weight="600"
               >
                 {title}
@@ -90,7 +90,7 @@ const ContextMenu = (): ReactElement | null => {
                 animate="animate"
                 transition={{ delay: index * 0.05 }}
                 onClick={() => handleClick(option)}
-                className=" flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-secondary-mid"
+                className=" flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-light"
               >
                 <div className="flex w-5 items-center justify-center">{option.icon}</div>
 

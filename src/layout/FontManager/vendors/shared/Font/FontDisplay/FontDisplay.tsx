@@ -46,7 +46,7 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
         fontWeight: weight,
         fontStyle: italic,
         lineHeight: `${size * 0.98}px`,
-        letterSpacing: `${letterSpacing}pt`,
+        letterSpacing: `${letterSpacing}px`,
         textAlign: `${textAlign}`,
         color: color ? color : '',
       }}

@@ -10,7 +10,7 @@ interface LinkProps {
 const Link = ({ to, children, className, style }: LinkProps): ReactElement => {
   return (
     <a
-      className={`${className} flex items-center justify-center gap-1 underline underline-offset-2`}
+      className={`flex items-center justify-center gap-1 underline underline-offset-2 ${className}`}
       style={{ ...style }}
       href={to}
     >

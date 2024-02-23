@@ -11,7 +11,7 @@
 /* Apply global styles */
 * {
   @apply outline-none;
-  @apply font-geist;
+  @apply font-body;
   @apply select-none;
   @apply antialiased;
 }
@@ -19,7 +19,7 @@
 body {
   @apply w-screen;
   @apply h-screen;
-  @apply text-foreground;
+  @apply text-regular;
   @apply bg-background;
 }
 

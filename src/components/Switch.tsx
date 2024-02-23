@@ -20,10 +20,8 @@ const Switch = ({
   return (
     <label className="flex w-max cursor-pointer items-center gap-4">
       <label
-        className="relative block h-5 w-10 cursor-pointer rounded-full bg-bar-background transition-all duration-150"
-        style={{
-          background: isChecked ? 'var(--foreground)' : 'var(--secondary-mid)',
-        }}
+        className={`relative block h-5 w-10 cursor-pointer rounded-full transition-all duration-150
+        ${isChecked ? 'bg-accent' : 'bg-light'}`}
       >
         <input
           className="appearance-none"
@@ -32,9 +30,8 @@ const Switch = ({
           onChange={handleChange}
         />
         <span
-          className="absolute top-[50%] aspect-square h-5/6 translate-y-[-50%] rounded-full bg-foreground transition-all duration-150"
+          className="absolute top-[50%] aspect-square h-5/6 translate-y-[-50%] rounded-full bg-background transition-all duration-150"
           style={{
-            background: isChecked ? 'var(--background)' : 'var(--background)',
             left: isChecked ? '53%' : '5%',
           }}
         ></span>

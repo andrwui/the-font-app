@@ -1,12 +1,13 @@
 import Text from 'components/Text'
 import { useState, type ReactElement } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { allLatinChars } from './components/allLatinChars'
 
 const GlyphViewer = (): ReactElement => {
   const font = decodeURIComponent(useLocation().search.split('=')[1])
 
   const [currentGlyph, setCurrentGlyph] = useState<string>('A')
+  const navigate = useNavigate()
 
   const handleMouseOver = (char: string): void => {
     setCurrentGlyph(char)
@@ -19,12 +20,20 @@ const GlyphViewer = (): ReactElement => {
   return (
     <div className="grid size-full grid-cols-2">
       <div
-        className="grid size-full place-items-center text-[25em]"
+        className="relative grid size-full place-items-center text-[25em]"
         style={{
           fontFamily: font,
         }}
       >
         {currentGlyph}
+        <span
+          onClick={() => {
+            navigate(`/`, { replace: true })
+          }}
+          className="absolute top-0 left-0 rounded-full bg-dark h-8 aspect-square text-lg font-bold grid place-items-center cursor-pointer"
+        >
+          X
+        </span>
       </div>
       <div className="grid size-full grid-cols-7 overflow-scroll">
         {allLatinChars.map((char: string, key: number) => {
@@ -32,7 +41,7 @@ const GlyphViewer = (): ReactElement => {
             <div
               key={key}
               onMouseOver={() => handleMouseOver(char)}
-              className="grid aspect-square w-full place-items-center border border-secondary-mid text-5xl transition-colors duration-150 hover:bg-foreground hover:text-background"
+              className="grid aspect-square w-full place-items-center border border-dark text-5xl transition-colors duration-150 hover:bg-accent hover:text-background"
             >
               {
                 <Text

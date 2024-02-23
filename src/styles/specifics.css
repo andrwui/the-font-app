@@ -29,7 +29,7 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   cursor: pointer;
-  background: var(--secondary-dark);
+  background-color: var(--layout-dark);
   width: 100%;
   outline: none;
   height: 6px;
@@ -41,6 +41,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   height: 6px;
   cursor: pointer;
   border-radius: 50px;
+
 }
 
 ::-webkit-slider-thumb {

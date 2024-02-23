@@ -84,11 +84,11 @@ const Text = ({
   }, [spacing, transform, align, monospace, warn, danger, success, weight, size])
 
   const textColor = danger
-    ? 'text-red-500'
+    ? 'text-error'
     : warn
-      ? 'text-yellow-500'
+      ? 'text-warning'
       : success
-        ? 'text-green-500'
+        ? 'text-success'
         : disabled
           ? 'text-disabled'
           : ''

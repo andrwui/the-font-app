@@ -15,7 +15,7 @@ const Layout = (): ReactElement => {
     >
       <TitleBar />
       <Sidebar />
-      <div className={`col-start-2 flex w-full justify-center`}>
+      <div className={`col-start-2 flex w-full justify-center pr-6`}>
         <Routes>
           <Route
             path="font-viewer/*"

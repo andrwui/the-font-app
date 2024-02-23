@@ -4,39 +4,29 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        off: {
-          white: 'var(--off-white)',
-          black: 'var(--off-black)',
-        },
-        bar: {
-          search: {
-            border: 'var(--bar-search-border)',
-            input: 'var(--bar-search-input)',
-          },
-          background: 'var(--bar-background)',
-          foreground: 'var(--bar-foreground)',
-        },
-
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        secondary: {
-          light: 'var(--secondary-light)',
-          mid: 'var(--secondary-mid)',
-          dark: 'var(--secondary-dark)',
-        },
-        disabled: 'var(--disabled)',
-      },
-
       fontFamily: {
-        geist: 'var(--geist)',
-        mono: 'var(--geist-mono)',
+        body: 'var(--body)',
+        monospace: 'var(--monospace)',
+      },
+      textColor: {
+        regular: 'var(--text-regular)',
+        accent: 'var(--text-accent)',
+        disabled: 'var(--text-disabled)',
+      },
+      colors: {
+        background: 'var(--layout-background)',
+        accent: 'var(--layout-accent)',
+        light: 'var(--layout-light)',
+        dark: 'var(--layout-dark)',
+        error: 'var(--semantic-error)',
+        warning: 'var(--semantic-warning)',
+        success: 'var(--semantic-success)',
       },
       gridTemplateColumns: {
-        layout: '70px calc(100vw - 70px)',
+        layout: '100px calc(100vw - 100px)',
       },
       gridTemplateRows: {
-        layout: '44px calc(100vh - 44px)',
+        layout: '50px calc(100vh - 50px)',
       },
     },
   },

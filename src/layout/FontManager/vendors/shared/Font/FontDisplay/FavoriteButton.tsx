@@ -9,7 +9,9 @@ const FavoriteButton = ({ font }: { font: string }): ReactElement => {
   return (
     <Tooltip text={isFavorite ? 'Remove from favorites' : 'Add to favorites'}>
       <button onClick={toggleFavorite}>
-        <FaStar className={isFavorite ? 'text-yellow-400' : ''} />
+        <FaStar
+          className={`${isFavorite ? 'text-yellow-400' : 'text-light'} transition-all duration-75`}
+        />
       </button>
     </Tooltip>
   )

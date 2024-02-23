@@ -28,9 +28,9 @@ const Button = ({
       onClick={onClick}
       className={`${className}
       ${animated ? 'transition-all duration-75 active:scale-[0.95]' : ''}
-      ${danger ? 'bg-red-700 text-white' : ''}
-      ${warn ? 'bg-yellow-600 text-white' : ''}
-      text-bold rounded-md bg-foreground p-2 text-background
+      ${danger ? 'bg-error text-white' : ''}
+      ${warn ? 'bg-warning text-white' : ''}
+      text-bold rounded-md bg-accent p-2 text-background
     `}
     >
       {children}

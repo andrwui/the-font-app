@@ -8,7 +8,7 @@ const Sidebar = (): ReactElement => {
     // The component of the sidebar, displays the links to navigate between features
     <div
       id="sidebar"
-      className=" relative z-10 col-span-1 row-span-2 flex h-full w-full flex-col items-center justify-start gap-5 bg-bar-background p-4"
+      className=" relative z-10 col-span-1 row-span-2 flex h-full w-full flex-col items-center justify-start gap-4 bg-background px-6"
     >
       <LocationLink
         to="/font-viewer/local"
