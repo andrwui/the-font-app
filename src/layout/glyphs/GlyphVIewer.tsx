@@ -1,7 +1,7 @@
 import Text from 'components/Text'
 import { useState, type ReactElement } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { allLatinChars } from './components/allLatinChars'
+import { allLatinChars } from './helpers/allLatinChars'
 
 const GlyphViewer = (): ReactElement => {
   const font = decodeURIComponent(useLocation().search.split('=')[1])
@@ -12,6 +12,8 @@ const GlyphViewer = (): ReactElement => {
   const handleMouseOver = (char: string): void => {
     setCurrentGlyph(char)
   }
+
+  const latinChars = allLatinChars()
 
   // TODO: Figure out design, currently is ugly
   // TODO: Add italic switch
@@ -36,21 +38,26 @@ const GlyphViewer = (): ReactElement => {
         </span>
       </div>
       <div className="grid size-full grid-cols-7 overflow-scroll">
-        {allLatinChars.map((char: string, key: number) => {
+        {latinChars.map((char: string, key: number) => {
           return (
             <div
               key={key}
               onMouseOver={() => handleMouseOver(char)}
-              className="grid aspect-square w-full place-items-center border border-dark text-5xl transition-colors duration-150 hover:bg-accent hover:text-background"
+              className="relative grid aspect-square w-full place-items-center border border-dark text-5xl transition-colors duration-150 hover:bg-accent hover:text-background"
             >
               {
-                <Text
-                  style={{
-                    fontFamily: font,
-                  }}
-                >
-                  {char}
-                </Text>
+                <>
+                  <Text
+                    style={{
+                      fontFamily: font,
+                    }}
+                  >
+                    {char}
+                  </Text>
+                  <Text className="text-xs absolute top-2 left-2 text-light font-bold">
+                    {`#${char.charCodeAt(0)}`}
+                  </Text>
+                </>
               }
             </div>
           )
