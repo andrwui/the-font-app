@@ -5,15 +5,14 @@ import { allLatinChars } from './helpers/allLatinChars'
 
 const GlyphViewer = (): ReactElement => {
   const font = decodeURIComponent(useLocation().search.split('=')[1])
+  const latinChars = allLatinChars()
 
-  const [currentGlyph, setCurrentGlyph] = useState<string>('A')
+  const [currentGlyph, setCurrentGlyph] = useState<string>(latinChars[0])
   const navigate = useNavigate()
 
   const handleMouseOver = (char: string): void => {
     setCurrentGlyph(char)
   }
-
-  const latinChars = allLatinChars()
 
   // TODO: Figure out design, currently is ugly
   // TODO: Add italic switch
