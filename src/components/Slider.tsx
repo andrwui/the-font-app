@@ -235,7 +235,7 @@ Slider.RangeInput = ({
       thumbWidthPercent && progress - (thumbWidthPercent * progress) / 100 / 2
 
     return leftPosition && Math.min(Math.max(leftPosition, 0), 100 - thumbWidthPercent)
-  }, [progress, trackRef])
+  }, [progress, trackRef, wWidth])
 
   return (
     <div
