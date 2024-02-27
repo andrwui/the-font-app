@@ -44,7 +44,7 @@ const SearchButton = (): ReactElement => {
     <>
       <AnimatePresence>
         {
-          // TODO: wrap in a div!, add command-pallete-like functionalities?
+          // TODO: add command-pallete-like functionalities?
           isVisible && (
             <motion.input
               initial={{
@@ -70,7 +70,7 @@ const SearchButton = (): ReactElement => {
               name="Search Bar"
               placeholder="Search fonts..."
               value={filterValue}
-              className="absolute left-1/2 top-2 z-50 h-[60px] w-1/3 -translate-x-1/2 rounded-md bg-dark text-center text-sm text-regular placeholder-light"
+              className="absolute left-1/2 top-2 z-50 h-[50px] w-1/3 -translate-x-1/2 rounded-md bg-dark text-center text-sm text-regular placeholder-regular"
             />
           )
         }
