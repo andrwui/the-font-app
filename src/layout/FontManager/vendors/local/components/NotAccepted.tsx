@@ -28,14 +28,27 @@ const NotAccepted = (): ReactElement => {
       >
         {'We need to request acces to read your local fonts :)'}
       </Text>
-      <Text size={16} weight="500">
-        <Link to="#">
+      <Text
+        size={16}
+        weight="500"
+      >
+        <Link
+          to="#"
+          icon
+          animated
+        >
           Learn more
-          <LuArrowUpRight size={16} />
         </Link>
       </Text>
-      <Button onClick={handleClick} animated className="mt-10">
-        <Text weight="500" className="text-background">
+      <Button
+        onClick={handleClick}
+        animated
+        className="mt-10"
+      >
+        <Text
+          weight="500"
+          className="text-background"
+        >
           Request Access
         </Text>
       </Button>

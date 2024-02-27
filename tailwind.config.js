@@ -26,7 +26,7 @@ export default {
         layout: '100px calc(100vw - 100px)',
       },
       gridTemplateRows: {
-        layout: '50px calc(100vh - 50px)',
+        layout: '60px calc(100vh - 50px)',
       },
     },
   },
