@@ -230,7 +230,7 @@ Slider.RangeInput = ({
   // and another function to calculate the position of the thumb
   const calculateThumbPosition = useMemo((): number | undefined => {
     const trackWidthPx = trackRef.current?.getBoundingClientRect().width
-    const thumbWidthPercent = trackWidthPx && (16 / trackWidthPx) * 100
+    const thumbWidthPercent = trackWidthPx && (15 / trackWidthPx) * 100
     const leftPosition =
       thumbWidthPercent && progress - (thumbWidthPercent * progress) / 100 / 2
 
@@ -254,7 +254,7 @@ Slider.RangeInput = ({
       <span
         className="pointer-events-none absolute left-0 top-1/2 z-10 h-1/3 translate-y-[-50%] rounded-md bg-accent transition-none duration-150 ease-linear"
         style={{
-          width: `${progress}%`,
+          width: `${calculateThumbPosition! + 2}%`,
         }}
       />
       <span
