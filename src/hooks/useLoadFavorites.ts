@@ -6,7 +6,7 @@ const useLoadFavorites = (): void => {
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favorites')
-    const favsArr = storedFavorites!.split(';')
+    const favsArr = storedFavorites ? storedFavorites.split(';') : []
     setFavorites(favsArr)
   }, [])
 }
