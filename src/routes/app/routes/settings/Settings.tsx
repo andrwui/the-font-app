@@ -1,7 +1,7 @@
 import Button from 'components/Button'
 import Text from 'components/Text'
 import useFavorites from 'hooks/useFavorites'
-import ThemeSwitcher from 'layout/Settings/components/ThemeSwitcher'
+import ThemeSwitcher from './components/ThemeSwitcher'
 import { type ReactElement } from 'react'
 
 const Settings = (): ReactElement => {

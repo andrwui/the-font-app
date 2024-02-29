@@ -19,8 +19,8 @@ const LocationLink = ({
 }: LocationLinkProps): ReactElement => {
   const location = useLocation().pathname
 
-  const route = `/${to.split('/')[1]}`
-  const baseRoute = `/${location.split('/')[1]}`
+  const route = `/${to.split('/')[2]}`
+  const baseRoute = `/${location.split('/')[2]}`
 
   const isCurrentRoute = baseRoute === route
   return (

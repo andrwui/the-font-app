@@ -1,13 +1,13 @@
 import { type ReactElement } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import TitleBar from './components/Titlebar/TitleBar'
-import FontViewer from './FontManager/FontManager'
-import Sidebar from './components/Sidebar/Sidebar'
-import Settings from './Settings/Settings'
-import GlyphViewer from './glyphs/GlyphVIewer'
-import Test from './Tests/Tests'
+import FontViewer from './routes/viewer/FontViewer'
+import Sidebar from './sidebar/Sidebar'
+import Settings from './routes/settings/Settings'
+import GlyphViewer from './routes/glyphs/GlyphViewer'
+import Test from './routes/tests/Tests'
+import Header from 'routes/header/Header'
 
-const Layout = (): ReactElement => {
+const AppLayout = (): ReactElement => {
   // Returns a wrapper of all the main panels of the application
 
   return (
@@ -15,24 +15,24 @@ const Layout = (): ReactElement => {
       className="grid h-full w-full
      grid-cols-layout grid-rows-layout flex-col *:focus:outline-none"
     >
-      <TitleBar />
+      <Header />
       <Sidebar />
       <div className={`col-start-2 flex w-full justify-center pr-6`}>
         <Routes>
           <Route
-            path="font-viewer/*"
+            path="/font-viewer/*"
             element={<FontViewer />}
           />
           <Route
-            path="settings/"
+            path="/settings/"
             element={<Settings />}
           />
           <Route
-            path="glyphs/*"
+            path="/glyphs/*"
             element={<GlyphViewer />}
           />
           <Route
-            path="tests/"
+            path="/tests/"
             element={<Test />}
           />
         </Routes>
@@ -40,4 +40,4 @@ const Layout = (): ReactElement => {
     </div>
   )
 }
-export default Layout
+export default AppLayout

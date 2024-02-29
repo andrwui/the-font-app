@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react'
 import { Virtuoso } from 'react-virtuoso'
-import Font from '../../shared/Font/Font'
+import Font from './components/Font'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
 const FontList = (): ReactElement => {
   // Declare the stores

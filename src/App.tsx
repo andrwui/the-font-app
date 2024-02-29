@@ -1,11 +1,12 @@
 import { type ReactElement } from 'react'
 
-import Layout from 'layout/Layout'
+import AppLayout from 'routes/app/AppLayout'
 
 import useKeybinds from 'hooks/useKeybinds'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import ContextMenu from 'components/ContextMenu'
 import useTheme from 'hooks/useSetTheme'
+import PageLayout from 'routes/page/PageLayout'
 
 const App = (): ReactElement => {
   // The main App component just renders the layout wrapped on the ThemeUI Provider
@@ -19,17 +20,12 @@ const App = (): ReactElement => {
       <ContextMenu />
       <Routes>
         <Route
-          path="/"
-          element={
-            <Navigate
-              replace
-              to="/font-viewer/local/"
-            />
-          }
+          path="/app/*"
+          element={<AppLayout />}
         />
         <Route
-          path="/*"
-          element={<Layout />}
+          path="/"
+          element={<PageLayout />}
         />
       </Routes>
     </>

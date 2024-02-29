@@ -1,5 +1,5 @@
 import { type ChangeEvent, type ReactElement } from 'react'
-import Switch from '../../../components/Switch'
+import Switch from 'components/Switch'
 import { useThemeStore } from 'stores/SettingsStore'
 
 const ThemeSwitcher = (): ReactElement => {

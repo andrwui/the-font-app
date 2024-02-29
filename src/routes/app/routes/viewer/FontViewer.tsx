@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react'
 import ReplaceBar from './components/ReplaceBar'
 import FontControls from './components/FontControls/FontControls'
-import LocalFontManager from './vendors/local/LocalFontManager'
+import LocalFontViewer from './vendors/local/LocalFontViewer'
 import { Route, Routes } from 'react-router-dom'
 import useLoadFavorites from 'hooks/useLoadFavorites'
 
@@ -14,7 +14,7 @@ const FontViewer = (): ReactElement => {
       <Routes>
         <Route
           path="local"
-          element={<LocalFontManager />}
+          element={<LocalFontViewer />}
         />
       </Routes>
       <ReplaceBar />

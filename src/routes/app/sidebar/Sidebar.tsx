@@ -12,19 +12,19 @@ const Sidebar = (): ReactElement => {
       className=" relative z-10 col-span-1 row-span-2 flex h-full w-full flex-col items-center justify-start gap-4 bg-background px-6"
     >
       <LocationLink
-        to="/font-viewer/local"
+        to="/app/font-viewer/local"
         tooltip="Local Fonts"
       >
         <AiFillHome />
       </LocationLink>
       <LocationLink
-        to="/settings"
+        to="/app/settings"
         tooltip="Settings"
       >
         <IoIosSettings />
       </LocationLink>
       <LocationLink
-        to="/tests"
+        to="/app/tests"
         tooltip="Tests"
       >
         <RiTestTubeFill />

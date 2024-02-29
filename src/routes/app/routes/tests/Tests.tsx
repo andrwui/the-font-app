@@ -14,7 +14,7 @@ const Tests = (): ReactElement => {
       glyphs: number
       fontName: string
     }> => {
-      const index = 187
+      const index = 1
       const fonts = await window.queryLocalFonts()
       const fontBlob: Blob = await fonts[index].blob()
       const fontBuffer = await fontBlob.arrayBuffer()
@@ -28,16 +28,21 @@ const Tests = (): ReactElement => {
 
   return (
     <div className="flex flex-col gap-5 w-full">
-      <h1 className="text-6xl font-extrabold">{fontData?.fontName}</h1>
-      <div className="grid size-full grid-cols-5">
+      <h1
+        className="text-6xl font-extrabold"
+        style={{ fontFamily: fontData?.fontName }}
+      >
+        {' '}
+        {fontData?.fontName}
+      </h1>
+      <div className="grid size-full grid-cols-10">
         {Array.from({ length: fontData?.glyphs || 0 }, (_, i) => (
           <div
             className="w-30 flex"
             key={i}
             style={{ fontFamily: fontData?.fontName }}
           >
-            <div>{fontData?.font.glyphIndexToName(i)}</div> ={' '}
-            <div>{String.fromCharCode(i)}</div>
+            <div style={{ fontFamily: fontData?.fontName }}>{String.fromCharCode(i)}</div>
           </div>
         ))}
       </div>

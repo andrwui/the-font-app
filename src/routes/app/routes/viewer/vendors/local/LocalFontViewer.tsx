@@ -3,13 +3,13 @@ import { useLocalFontsStore } from 'stores/LocalFontsStore'
 import { requestLocalFontsPermission } from 'helpers/LocalFontPermissions'
 import NoFontsFound from '../shared/NoFontsFound'
 import LoadingFonts from '../shared/LoadingFonts'
-import FontList from './components/LocalFontList'
+import FontList from './components/FontList/FontList'
 import useSetLocalFonts from 'hooks/useSetFonts'
 import NotSupported from './components/NotSupported'
 import NotAccepted from './components/NotAccepted'
 import { usePolicyStore } from 'stores/PolicyStore'
 
-const LocalFontManager = (): ReactElement => {
+const LocalFontViewer = (): ReactElement => {
   const { filteredFonts, filterValue } = useLocalFontsStore()
   const { isLoading } = useLocalFontsStore()
   const { hasAccepted, setHasAccepted } = usePolicyStore()
@@ -49,4 +49,4 @@ const LocalFontManager = (): ReactElement => {
     <FontList />
   )
 }
-export default LocalFontManager
+export default LocalFontViewer
