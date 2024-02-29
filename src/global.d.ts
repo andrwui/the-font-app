@@ -12,14 +12,12 @@ declare module 'react' {
 declare global {
   interface Window {
     queryLocalFonts: () => Promise<
-      [
-        {
-          family: string
-          fullName: string
-          postscriptName: string
-          style: string
-        },
-      ]
+      Array<{
+        family: string
+        fullName: string
+        postscriptName: string
+        style: string
+      }>
     >
     currentTheme: Theme
     exposedStores: {

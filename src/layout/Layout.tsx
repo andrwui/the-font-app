@@ -5,6 +5,8 @@ import FontViewer from './FontManager/FontManager'
 import Sidebar from './components/Sidebar/Sidebar'
 import Settings from './Settings/Settings'
 import GlyphViewer from './glyphs/GlyphVIewer'
+import Test from './Tests/Tests'
+
 const Layout = (): ReactElement => {
   // Returns a wrapper of all the main panels of the application
 
@@ -28,6 +30,10 @@ const Layout = (): ReactElement => {
           <Route
             path="glyphs/*"
             element={<GlyphViewer />}
+          />
+          <Route
+            path="tests/"
+            element={<Test />}
           />
         </Routes>
       </div>

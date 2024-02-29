@@ -2,6 +2,7 @@ import { type ReactElement } from 'react'
 import LocationLink from './components/LocationLink'
 import { AiFillHome } from 'react-icons/ai'
 import { IoIosSettings } from 'react-icons/io'
+import { RiTestTubeFill } from 'react-icons/ri'
 
 const Sidebar = (): ReactElement => {
   return (
@@ -21,6 +22,12 @@ const Sidebar = (): ReactElement => {
         tooltip="Settings"
       >
         <IoIosSettings />
+      </LocationLink>
+      <LocationLink
+        to="/tests"
+        tooltip="Tests"
+      >
+        <RiTestTubeFill />
       </LocationLink>
     </div>
   )
