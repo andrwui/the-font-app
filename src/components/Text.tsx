@@ -6,7 +6,7 @@ interface TextProps {
 
   weight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'
   size?: 10 | 13 | 16 | 18 | 24 | 32
-  lineHeight?: string
+  lineHeight?: number
 
   monospace?: boolean
   nowrap?: boolean
@@ -18,7 +18,7 @@ interface TextProps {
   danger?: boolean
   success?: boolean
 
-  spacing?: 'none' | 'tight' | 'loose'
+  spacing?: number | string
   transform?: 'capitalize' | 'uppercase' | 'lowercase'
   align?: 'left' | 'center' | 'right'
 

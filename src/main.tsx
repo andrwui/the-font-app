@@ -3,7 +3,6 @@ import App from './App.tsx'
 import './styles/fonts/geist.css'
 import './styles/fonts/geist-mono.css'
 import './styles/index.css'
-import './styles/colors.css'
 import './styles/specifics.css'
 import { BrowserRouter } from 'react-router-dom'
 

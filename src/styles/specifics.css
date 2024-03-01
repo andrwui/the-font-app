@@ -1,4 +1,3 @@
-@import url('./colors.css');
 /* Specific styles, for commodities tailwind cannot give */
 
 
@@ -22,14 +21,16 @@
   display: none;
 }
 
+::-webkit-scrollbar-thumb{
+  width: 5px;
+  background-color: white;
+}
 
 
 /* Global styles for range inputs, because I wanted to style them */
 input[type="range"] {
   appearance: none;
-  background: transparent;
   cursor: pointer;
-  background-color: var(--layout-dark);
   width: 100%;
   outline: none;
   height: 6px;

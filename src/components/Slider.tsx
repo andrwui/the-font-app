@@ -243,7 +243,7 @@ Slider.RangeInput = ({
       ref={trackRef}
     >
       <input
-        className="absolute left-0 top-1/2 h-1/3 translate-y-[-50%]"
+        className="absolute left-0 top-1/2 h-1/3 translate-y-[-50%] bg-dark"
         value={value}
         onChange={onChange}
         type="range"

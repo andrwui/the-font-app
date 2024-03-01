@@ -1,10 +1,12 @@
 import { type ReactElement } from 'react'
 import Header from 'routes/header/Header'
+import Presentation from './sections/presentation/Presentation'
 
 const PageLayout = (): ReactElement => {
   return (
     <>
-      <Header />
+      <Header className="fixed" />
+      <Presentation />
     </>
   )
 }
