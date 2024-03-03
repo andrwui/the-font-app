@@ -19,7 +19,7 @@ const Presentation = (): ReactElement => {
   const navigate = useNavigate()
 
   return (
-    <main className="h-screen flex flex-col max-sm:justify-center">
+    <main className="h-dvh flex flex-col max-sm:justify-center">
       <div className="mx-auto max-sm:mt-0 sm:mt-[60px]">
         <AppIcon
           className="
