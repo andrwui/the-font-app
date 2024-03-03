@@ -3,7 +3,7 @@ import { type ReactElement } from 'react'
 import AppLayout from 'routes/app/AppLayout'
 
 import useKeybinds from 'hooks/useKeybinds'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import ContextMenu from 'components/ContextMenu'
 import useTheme from 'hooks/useSetTheme'
 import PageLayout from 'routes/page/PageLayout'
@@ -22,6 +22,16 @@ const App = (): ReactElement => {
         <Route
           path="/app/*"
           element={<AppLayout />}
+        />
+        {/* This is temporary as I think about a "Homepage" for the app itself */}
+        <Route
+          path="/app/"
+          element={
+            <Navigate
+              replace
+              to="/app/font-viewer/local/"
+            />
+          }
         />
         <Route
           path="/"

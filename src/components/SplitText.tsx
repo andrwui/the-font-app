@@ -1,5 +1,5 @@
-import { type CSSProperties, type ReactElement } from 'react'
-import { motion } from 'framer-motion'
+import { Fragment, useRef, type CSSProperties, type ReactElement } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 interface SplitTextProps {
   children: string
@@ -8,6 +8,7 @@ interface SplitTextProps {
   className?: string
   childrenClassName?: string
 
+  opacity?: boolean
   split: 'words' | 'letters'
   from: 'up' | 'down'
   stagger?: number
@@ -20,12 +21,17 @@ const SplitText = ({
   className,
   from,
   stagger,
+  duration,
   delay,
+  opacity,
   split,
   style,
   childrenClassName,
 }: SplitTextProps): ReactElement => {
   const comps = children.split(split === 'letters' ? '' : ' ')
+  const elRef = useRef<HTMLParagraphElement>(null)
+
+  const inView = useInView(elRef, { once: false, margin: '-50px' })
 
   return (
     <div
@@ -33,55 +39,59 @@ const SplitText = ({
     >
       {comps.map((el, i) => {
         return split === 'letters' ? (
-          <>
+          <Fragment key={i}>
             <motion.p
+              ref={elRef}
               className={`inline-block ${childrenClassName ? childrenClassName : ''}`}
               key={i}
               style={{
                 ...style,
               }}
               initial={{
-                opacity: 0,
+                opacity: opacity ? 0 : 1,
                 y: from === 'up' ? '-100%' : '100%',
               }}
               animate={{
-                opacity: 100,
-                y: 0,
+                opacity: opacity ? (inView ? 1 : 0) : 1,
+                y: inView ? 0 : from === 'up' ? '-100%' : '100%',
               }}
               transition={{
-                delay: i * (stagger ? stagger / 100 : 1) + (delay ? delay : 0),
-                type: 'spring',
-                damping: 20,
-                stiffness: 200,
+                duration: duration || 0.3,
+                delay: stagger
+                  ? i * (stagger ? stagger / 100 : 1) + (delay || 0)
+                  : delay || 0,
+                ease: [0.23, 0.81, 0.63, 0.97],
               }}
             >
               {`${el}`}
             </motion.p>
-          </>
+          </Fragment>
         ) : (
           <div
             key={i}
-            className="overflow-hidden inline-block w-max max-sm:py-2 py-[3dvw] 2xl:py-[20px]"
+            className="overflow-hidden inline-block w-max"
           >
             <motion.p
+              ref={elRef}
               className={`inline-block ${childrenClassName ? childrenClassName : ''}`}
               key={i}
               style={{
                 ...style,
               }}
               initial={{
-                opacity: 0,
-                y: from === 'up' ? '-200' : '200',
+                opacity: opacity ? 0 : 1,
+                y: from === 'up' ? '-100%' : '100%',
               }}
               animate={{
-                opacity: 100,
-                y: 0,
+                opacity: opacity ? (inView ? 1 : 0) : 1,
+                y: inView ? 0 : from === 'up' ? '-100%' : '100%',
               }}
               transition={{
-                delay: i * (stagger ? stagger / 100 : 1) + (delay || 0),
-                type: 'spring',
-                damping: 20,
-                stiffness: 200,
+                duration: duration || 0.3,
+                delay: stagger
+                  ? i * (stagger ? stagger / 100 : 1) + (delay || 0)
+                  : delay || 0,
+                ease: [0.23, 0.81, 0.63, 0.97],
               }}
             >
               {`${el}`}

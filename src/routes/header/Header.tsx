@@ -2,17 +2,12 @@ import { type ReactElement } from 'react'
 
 import Link from 'components/Link'
 import AppIcon from './appicon/AppIcon'
-import { useLocation, useNavigate } from 'react-router-dom'
-import Button from 'components/Button'
 
 const Header = ({ className }: { className?: string }): ReactElement => {
-  const path = useLocation().pathname
-  const navigate = useNavigate()
-
   return (
     // The component of the top bar, currently just returns the search bar
     <header
-      className={`z-1 col-span-2 row-span-1 flex justify-between bg-bar-background px-6 h-[60px] w-full top-0 bg-background/50 ${className || ''}`}
+      className={`z-50 col-span-2 row-span-1 flex justify-between bg-bar-background px-6 h-[60px] w-full top-0 bg-background/95 backdrop-blur-sm ${className || ''}`}
     >
       <AppIcon className="w-[52px] flex justify-center items-center " />
       <nav className="flex items-center gap-10">

@@ -59,7 +59,7 @@ const Font = ({ font }: TFontProps): ReactElement => {
         </Text>
       ),
       action: () => {
-        navigate(`/glyphs?font=${font.name}`, { replace: true })
+        navigate(`/app/glyphs?font=${font.name}`, { replace: true })
       },
     },
   ]

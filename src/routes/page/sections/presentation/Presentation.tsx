@@ -45,6 +45,7 @@ const Presentation = (): ReactElement => {
         <SplitText
           from="down"
           stagger={3}
+          duration={0.3}
           split="words"
           className="relative
           text-[5dvw]
@@ -54,12 +55,14 @@ const Presentation = (): ReactElement => {
           xl:text-[6.8dvw] xl:leading-[4dvw]
           2xl:text-[6.8dvw] 2xl:leading-[6dvw]
           "
+          childrenClassName="max-sm:py-2 py-[3dvw] 2xl:py-[20px]"
           style={{ fontFamily: 'Coolvetica Rg' }}
         >
           The application for all your
         </SplitText>
         <SplitText
           stagger={3}
+          duration={0.3}
           from="down"
           split="letters"
           className="absolute w-max text-center
@@ -81,8 +84,10 @@ const Presentation = (): ReactElement => {
         <SplitText
           from="down"
           split="words"
-          stagger={2}
+          stagger={0}
+          duration={0.2}
           delay={0.3}
+          childrenClassName=""
           className="
           text-regular/55
           max-sm:text-[3dvw] max-sm:pb-[2dvw]

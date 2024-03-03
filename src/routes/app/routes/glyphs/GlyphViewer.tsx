@@ -29,7 +29,7 @@ const GlyphViewer = (): ReactElement => {
         {currentGlyph}
         <span
           onClick={() => {
-            navigate(`/`, { replace: true })
+            navigate(`/app`, { replace: true })
           }}
           className="absolute top-0 left-0 rounded-full bg-dark h-8 aspect-square text-lg font-bold grid place-items-center cursor-pointer"
         >
