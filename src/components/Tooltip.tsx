@@ -139,14 +139,7 @@ Tooltip.Tooltip = ({
             ...styles,
           }}
         >
-          {
-            <Text
-              size={13}
-              lineHeight={'15'}
-            >
-              {text}
-            </Text>
-          }
+          {<Text size={13}>{text}</Text>}
         </motion.div>
       )}
     </AnimatePresence>

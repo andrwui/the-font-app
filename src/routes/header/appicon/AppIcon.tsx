@@ -3,13 +3,13 @@ import { type ReactElement } from 'react'
 import TFAIcon from '../icons/TheFontApp.svg?react'
 import { Link } from 'react-router-dom'
 
-const AppIcon = (): ReactElement => {
+const AppIcon = ({ className }: { className?: string }): ReactElement => {
   return (
     <Link
       to="/"
-      className="h-full w-[52px] flex justify-center items-center"
+      className={className}
     >
-      <TFAIcon className="size-8" />
+      <TFAIcon className="size-8 *:fill-accent" />
     </Link>
   )
 }

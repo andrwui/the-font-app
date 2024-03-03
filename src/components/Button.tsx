@@ -30,7 +30,7 @@ const Button = ({
       ${animated ? 'transition-all duration-75 active:scale-[0.95]' : ''}
       ${danger ? 'bg-error text-white' : ''}
       ${warn ? 'bg-warning text-white' : ''}
-      text-bold rounded-md bg-accent p-2 text-background
+      font-semibold rounded-md bg-accent p-2 text-background
     `}
     >
       {children}

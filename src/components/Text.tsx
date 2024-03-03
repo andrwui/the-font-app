@@ -6,7 +6,7 @@ interface TextProps {
 
   weight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '1000'
   size?: 10 | 13 | 16 | 18 | 24 | 32
-  lineHeight?: number
+  lineHeight?: number | string
 
   monospace?: boolean
   nowrap?: boolean
@@ -68,7 +68,7 @@ const Text = ({
     const styles: React.CSSProperties = {
       fontSize: size ? `${size}px` : undefined,
       fontWeight: weight ? weight : calculateStyles,
-      lineHeight: `${lineHeight}px`,
+      lineHeight: `${lineHeight}`,
 
       letterSpacing: spacing ? spacing : '0px',
 

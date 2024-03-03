@@ -14,7 +14,7 @@ const Header = ({ className }: { className?: string }): ReactElement => {
     <header
       className={`z-1 col-span-2 row-span-1 flex justify-between bg-bar-background px-6 h-[60px] w-full top-0 bg-background/50 ${className || ''}`}
     >
-      <AppIcon />
+      <AppIcon className="w-[52px] flex justify-center items-center " />
       <nav className="flex items-center gap-10">
         {path.split('/')[1] !== 'app' && (
           <Button
