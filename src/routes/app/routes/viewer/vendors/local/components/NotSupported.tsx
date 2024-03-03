@@ -1,5 +1,4 @@
 import Text from 'components/Text'
-import { LuArrowUpRight } from 'react-icons/lu'
 import { type ReactElement } from 'react'
 import Link from 'components/Link'
 const NotSupported = (): ReactElement => {
@@ -7,9 +6,7 @@ const NotSupported = (): ReactElement => {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-3">
       <Text
-        style={{
-          width: '30%',
-        }}
+        className="max-sm:w-4/5 w-1/4"
         balance
         size={18}
         weight="200"
@@ -22,9 +19,12 @@ const NotSupported = (): ReactElement => {
         size={16}
         weight="500"
       >
-        <Link to="#">
+        <Link
+          to="#"
+          icon
+          animated
+        >
           Learn more
-          <LuArrowUpRight size={16} />
         </Link>
       </Text>
     </div>

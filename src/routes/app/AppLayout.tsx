@@ -12,12 +12,12 @@ const AppLayout = (): ReactElement => {
 
   return (
     <div
-      className="grid h-full w-full
+      className="grid h-full w-full max-sm:grid-cols-1
      grid-cols-layout grid-rows-layout flex-col *:focus:outline-none"
     >
       <Header />
       <Sidebar />
-      <div className={`col-start-2 flex w-full justify-center pr-6`}>
+      <div className={`col-start-2 flex w-full justify-center sm:pr-6`}>
         <Routes>
           <Route
             path="/font-viewer/*"

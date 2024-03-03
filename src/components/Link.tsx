@@ -38,7 +38,7 @@ const Link = ({
           size={16}
           className="transition-all duration-100"
           style={{
-            translate: isHovering ? '3px -3px' : '',
+            translate: animated && isHovering ? '3px -3px' : '',
           }}
         />
       )}

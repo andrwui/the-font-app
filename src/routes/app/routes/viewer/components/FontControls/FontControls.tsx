@@ -83,7 +83,7 @@ const FontControls = (): ReactElement => {
   // The non-numeric (Boolean) values, are managed by the generic Checkboxes (See Generics > Checkbox to see how it works).
 
   return (
-    <div className="flex h-max w-full flex-col items-center justify-start bg-background lg:h-max lg:flex-row lg:justify-start lg:gap-10 pb-3">
+    <div className="max-sm:hidden flex h-max w-full flex-col items-center justify-start bg-background lg:h-max lg:flex-row lg:justify-start lg:gap-10 pb-3">
       <div className="mb-4 flex gap-3 lg:mb-0">
         <SearchButton />
         <Cycler

@@ -16,14 +16,6 @@ const Header = ({ className }: { className?: string }): ReactElement => {
     >
       <AppIcon className="w-[52px] flex justify-center items-center " />
       <nav className="flex items-center gap-10">
-        {path.split('/')[1] !== 'app' && (
-          <Button
-            className={'h-3/4'}
-            onClick={() => navigate(`/app/font-viewer/local`, { replace: true })}
-          >
-            Get Started
-          </Button>
-        )}
         <ul className="flex gap-7 h-full items-center">
           <li>
             <Link
