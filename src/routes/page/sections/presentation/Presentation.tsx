@@ -52,7 +52,7 @@ const Presentation = (): ReactElement => {
           xl:text-[6.5dvw] xl:leading-[4.3dvw]
           2xl:text-[4dvw] 2xl:leading-[2.2dvw]
           "
-          style={{ fontFamily: 'Coolvetica' }}
+          style={{ fontFamily: 'Coolvetica Rg' }}
         >
           The application for all your
         </SplitText>

@@ -1,6 +1,7 @@
 @import url("./fonts/geist.css");
 @import url("./fonts/geist-mono.css");
 @import url("./fonts/courgette.css");
+@import url("./fonts/coolvetica.css");
 /* Import TailwindCSS  */
 @tailwind base;
 @tailwind components;
