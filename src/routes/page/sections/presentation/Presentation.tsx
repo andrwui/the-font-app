@@ -20,7 +20,7 @@ const Presentation = (): ReactElement => {
 
   return (
     <main className="h-screen flex flex-col max-sm:justify-center">
-      <div className="mx-auto mt-[60px] max-sm:mt-40">
+      <div className="mx-auto mt-[60px]">
         <AppIcon
           className="
           h-min
