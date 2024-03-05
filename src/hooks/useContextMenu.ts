@@ -1,4 +1,4 @@
-import { type ContextMenuOption } from 'components/ContextMenu'
+import { type ContextMenuOption } from 'components/ContextMenu/ContextMenu'
 import { useEffect, type MouseEvent, type RefObject } from 'react'
 import useContextMenuStore from 'stores/ContextMenuStore'
 

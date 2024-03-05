@@ -1,4 +1,4 @@
-import { type ContextMenuOption } from 'components/ContextMenu'
+import { type ContextMenuOption } from 'components/ContextMenu/ContextMenu'
 import { create } from 'zustand'
 
 interface ContextMenuStore {

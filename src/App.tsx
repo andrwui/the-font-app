@@ -4,7 +4,7 @@ import AppLayout from 'routes/app/AppLayout'
 
 import useKeybinds from 'hooks/useKeybinds'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import ContextMenu from 'components/ContextMenu'
+import ContextMenu from 'components/ContextMenu/ContextMenu'
 import useTheme from 'hooks/useSetTheme'
 import PageLayout from 'routes/page/PageLayout'
 
