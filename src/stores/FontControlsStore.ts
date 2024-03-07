@@ -3,7 +3,7 @@ import { create } from 'zustand'
 // In this file are all the stores that are related to the viewer's settings.
 
 // ====== SIZE STORE ======
-interface SizeStore {
+type SizeStore = {
   size: number
   setSize: (size: number) => void
   resetSize: () => void
@@ -22,7 +22,7 @@ export const useSizeStore = create<SizeStore>(set => ({
 }))
 
 // ====== WEIGHT STORE ======
-interface WeightStore {
+type WeightStore = {
   weight: number
   setWeight: (weight: number) => void
   resetWeight: () => void
@@ -41,7 +41,7 @@ export const useWeightStore = create<WeightStore>(set => ({
 }))
 
 // ====== SPACING STORE ======
-interface SpacingStore {
+type SpacingStore = {
   letterSpacing: number
   setLetterSpacing: (letterSpacing: number) => void
   resetLetterSpacing: () => void
@@ -60,7 +60,7 @@ export const useSpacingStore = create<SpacingStore>(set => ({
 }))
 
 // ====== TEXT REPLACER STORE ======
-interface TextReplacerStore {
+type TextReplacerStore = {
   text: string
   setText: (text: string) => void
   resetText: () => void
@@ -82,7 +82,7 @@ export const useTextReplacerStore = create<TextReplacerStore>(set => ({
 // ====== STYLESTORE ======
 
 export type ItalicTypes = 'italic' | ''
-interface ItalicStore {
+type ItalicStore = {
   italic: ItalicTypes
   setItalic: (italic: ItalicTypes) => void
 }
@@ -95,7 +95,7 @@ export const useItalicStore = create<ItalicStore>(set => ({
 }))
 
 export type TextAlignTypes = 'center' | 'right' | 'left'
-interface TextAlignStore {
+type TextAlignStore = {
   textAlign: TextAlignTypes
   setTextAlign: (textAlign: TextAlignTypes) => void
 }

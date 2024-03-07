@@ -2,13 +2,13 @@ import { useState, type ReactElement } from 'react'
 import Tooltip from './Tooltip'
 import Text from './Text'
 
-export interface CyclerOption {
+export type CyclerOption = {
   icon: ReactElement
   text?: string
   value: string | number
 }
 
-interface CyclerProps {
+type CyclerProps = {
   options: CyclerOption[]
   onClick: (_: any) => void
   tooltip?: string

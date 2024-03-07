@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { type TFont } from 'types/FontTypes'
 
 // Types for the local fonts store
-interface LocalFontStore {
+type LocalFontStore = {
   fonts: TFont[]
   setFonts: (localFonts: TFont[]) => void
 

@@ -7,14 +7,6 @@ import { FaAngleDown } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import AppIcon from 'routes/header/appicon/AppIcon'
 
-/**
-        // max-sm:bg-white/50
-        // sm:bg-red-500 
-        // lg:bg-blue-500
-        // xl:bg-yellow-500
-        // 2xl:bg-green-500
- */
-
 const Presentation = (): ReactElement => {
   const navigate = useNavigate()
 

@@ -12,7 +12,7 @@ import Text from './Text'
 import Tooltip from './Tooltip'
 import useGetWindowDimensions from 'hooks/useGetWindowDimensions'
 
-export interface SliderProps {
+export type SliderProps = {
   className?: string
   style?: string
 
@@ -97,7 +97,7 @@ const Slider = ({
 
 export default React.memo(Slider)
 
-interface InputValueProps {
+type InputValueProps = {
   unit?: string
   value: string
   min: string
@@ -194,7 +194,7 @@ Slider.InputValue = ({
   )
 }
 
-interface RangeInputProps {
+type RangeInputProps = {
   min: string
   max: string
   step?: string

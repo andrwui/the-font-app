@@ -1,13 +1,13 @@
 import { useState, type ReactElement, useRef, useEffect, type ReactNode } from 'react'
 import Text from './Text'
 
-interface DropdownProps {
+type DropdownProps = {
   children: string
   className?: string
   options: DropdownItem[]
 }
 
-interface DropdownItem {
+type DropdownItem = {
   name: ReactNode
   action: () => void
 }

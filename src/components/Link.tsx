@@ -2,7 +2,7 @@ import { type ReactElement, useState } from 'react'
 import { motion } from 'framer-motion'
 import { LuArrowUpRight } from 'react-icons/lu'
 
-interface LinkProps {
+type LinkProps = {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties

@@ -1,6 +1,6 @@
 import { type ChangeEvent, type ReactElement } from 'react'
 
-export interface BigBarProps {
+export type BigBarProps = {
   id?: string
   className?: string
   placeholder?: string

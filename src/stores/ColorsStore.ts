@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface ColorStore {
+type ColorStore = {
   color: string
   setColor: (color: string) => void
 }

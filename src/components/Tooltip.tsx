@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import Text from './Text'
 
-interface TooltipProps {
+type TooltipProps = {
   children: ReactNode
   direction?: 'top' | 'down' | 'left' | 'right'
   text: string
@@ -60,7 +60,7 @@ const Tooltip = ({
   )
 }
 
-interface AnimationProps {
+type AnimationProps = {
   x?: number
   y?: number
   opacity?: number

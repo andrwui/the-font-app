@@ -11,7 +11,7 @@ const Modal = ({ children }: { children: ReactNode }): ReactElement => {
   )
 }
 
-interface ModalTitleProps {
+type ModalTitleProps = {
   children: ReactNode
 }
 

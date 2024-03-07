@@ -2,11 +2,11 @@ import { Component, type ErrorInfo, type ReactNode } from 'react'
 import Link from './Link'
 import ActionText from './ActionText'
 
-interface Props {
+type Props = {
   children?: ReactNode
 }
 
-interface State {
+type State = {
   hasError: boolean
   error: Error
 }

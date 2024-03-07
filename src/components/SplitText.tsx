@@ -1,7 +1,7 @@
 import { Fragment, useRef, type CSSProperties, type ReactElement } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-interface SplitTextProps {
+type SplitTextProps = {
   children: string
 
   style?: CSSProperties

@@ -41,6 +41,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-assertions': 0,
     '@typescript-eslint/ban-tslint-comment': 0,
     '@typescript-eslint/triple-slash-reference': 0,
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
 
     'react/display-name': 0,
     'react/react-in-jsx-scope': 0,

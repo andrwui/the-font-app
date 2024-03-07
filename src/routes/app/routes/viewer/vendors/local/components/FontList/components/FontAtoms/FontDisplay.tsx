@@ -13,7 +13,7 @@ import { formatFontName } from 'helpers/FontHelper'
 import type { TFont } from 'types/FontTypes'
 import { useColorStore } from 'stores/ColorsStore'
 
-interface FontDisplayProps {
+type FontDisplayProps = {
   font: TFont
 }
 

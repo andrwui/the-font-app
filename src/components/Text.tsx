@@ -1,6 +1,6 @@
 import { type ReactElement, useMemo, type ReactNode } from 'react'
 
-interface TextProps {
+type TextProps = {
   children: ReactNode
   style?: React.CSSProperties
 

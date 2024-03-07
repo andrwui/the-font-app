@@ -3,7 +3,7 @@ import type { TFont } from 'types/FontTypes'
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
 import FavoriteButton from './FavoriteButton'
-interface FontNameProps {
+type FontNameProps = {
   font: TFont
 }
 const FontName = ({ font }: FontNameProps): ReactElement => {

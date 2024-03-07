@@ -1,7 +1,7 @@
 import { type ReactElement, useState } from 'react'
 import { motion } from 'framer-motion'
 
-interface ActionTextProps {
+type ActionTextProps = {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties

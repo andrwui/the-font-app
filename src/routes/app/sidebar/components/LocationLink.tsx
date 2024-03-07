@@ -2,7 +2,7 @@ import Tooltip from 'components/Tooltip'
 import { type ReactNode, type ReactElement, type CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-interface LocationLinkProps {
+type LocationLinkProps = {
   children: ReactNode
   to: string
   className?: string

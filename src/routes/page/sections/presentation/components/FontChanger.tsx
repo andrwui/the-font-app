@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion'
-import { useState, type ReactElement, useRef, type MouseEvent } from 'react'
+import { type ReactElement, useRef } from 'react'
 
 const FontChanger = (): ReactElement => {
   const ref = useRef<HTMLDivElement>(null)

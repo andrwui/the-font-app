@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface PolicyStore {
+type PolicyStore = {
   hasAccepted: boolean
   setHasAccepted: (hasAccepted: boolean) => void
 }

@@ -13,7 +13,7 @@ export type FontsRecord = Record<
   }>
 >
 // Type for a singular local font
-export interface TFont {
+export type TFont = {
   font: any
   name: string
   variants: Array<{

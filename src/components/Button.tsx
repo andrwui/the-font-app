@@ -1,6 +1,6 @@
 import { type CSSProperties, type ReactElement, type ReactNode } from 'react'
 
-interface ButtonProps {
+type ButtonProps = {
   className?: string
   style?: CSSProperties
   animated?: boolean

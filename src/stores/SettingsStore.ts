@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface ThemeStore {
+type ThemeStore = {
   darkTheme: boolean
   setDarkTheme: (darkTheme: boolean) => void
 }
@@ -10,7 +10,7 @@ export const useThemeStore = create<ThemeStore>(set => ({
   setDarkTheme: darkTheme => set({ darkTheme }),
 }))
 
-interface FavoritesStore {
+type FavoritesStore = {
   favorites: string[]
   setFavorites: (favorites: string[]) => void
 }
