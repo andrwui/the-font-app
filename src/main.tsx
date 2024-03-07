@@ -5,11 +5,14 @@ import './styles/fonts/geist-mono.css'
 import './styles/index.css'
 import './styles/specifics.css'
 import { BrowserRouter } from 'react-router-dom'
+import ErrorBoundary from 'components/ErrorBoundary.tsx'
 
 // Main React component, just renders the <App /> component
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ErrorBoundary>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ErrorBoundary>,
 )

@@ -26,7 +26,7 @@ const Link = ({
 
   return (
     <a
-      className={`flex items-center justify-center ${!animated ? 'underline underline-offset-2' : 'relative'} ${className}`}
+      className={`items-center justify-center w-max inline-flex ${!animated ? 'underline underline-offset-2' : 'relative'} ${className || ''}`}
       style={{ ...style }}
       href={to}
       onMouseEnter={handleMouseEnter}
