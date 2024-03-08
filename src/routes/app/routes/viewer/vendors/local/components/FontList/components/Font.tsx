@@ -2,7 +2,7 @@ import { useRef, type ReactElement } from 'react'
 import { useSizeStore } from 'stores/FontControlsStore'
 import { type TFont } from 'types/FontTypes'
 import FontDisplay from './FontAtoms/FontDisplay'
-import FontName from './FontAtoms/FontName'
+import FontTopRow from './FontAtoms/FontTopRow'
 
 type TFontProps = {
   font: TFont
@@ -25,7 +25,7 @@ const Font = ({ font }: TFontProps): ReactElement => {
         paddingBottom: `${size * 0.5}px`,
       }}
     >
-      <FontName font={font} />
+      <FontTopRow font={font} />
       <FontDisplay font={font} />
     </div>
   )

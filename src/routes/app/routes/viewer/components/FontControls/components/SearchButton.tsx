@@ -43,37 +43,34 @@ const SearchButton = (): ReactElement => {
   return (
     <>
       <AnimatePresence>
-        {
-          // TODO: add command-pallete-like functionalities?
-          isVisible && (
-            <motion.input
-              initial={{
-                y: -20,
-                x: '-50%',
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-                y: 100,
-                x: '-50%',
-              }}
-              exit={{
-                opacity: 0,
-                y: -20,
-                x: '-50%',
-              }}
-              ref={inputRef}
-              id="SearchBar"
-              type="text"
-              onChange={filterFonts}
-              onBlur={handleBlur}
-              name="Search Bar"
-              placeholder="Search fonts..."
-              value={filterValue}
-              className="absolute left-1/2 top-2 z-50 h-[50px] w-1/3 -translate-x-1/2 rounded-md bg-dark text-center text-sm text-regular placeholder-regular"
-            />
-          )
-        }
+        {isVisible && (
+          <motion.input
+            initial={{
+              y: -20,
+              x: '-50%',
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+              y: 100,
+              x: '-50%',
+            }}
+            exit={{
+              opacity: 0,
+              y: -20,
+              x: '-50%',
+            }}
+            ref={inputRef}
+            id="SearchBar"
+            type="text"
+            onChange={filterFonts}
+            onBlur={handleBlur}
+            name="Search Bar"
+            placeholder="Search fonts..."
+            value={filterValue}
+            className="absolute left-1/2 top-2 z-50 h-[50px] w-1/3 -translate-x-1/2 rounded-md bg-dark text-center text-sm text-regular placeholder-regular"
+          />
+        )}
       </AnimatePresence>
 
       <Button

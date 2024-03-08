@@ -3,10 +3,11 @@ import type { TFont } from 'types/FontTypes'
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
 import FavoriteButton from './FavoriteButton'
-type FontNameProps = {
+import CollectionsDropdown from 'routes/app/routes/viewer/vendors/shared/CollectionsDropdown/CollectionsDropdown'
+type FontTopRowProps = {
   font: TFont
 }
-const FontName = ({ font }: FontNameProps): ReactElement => {
+const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
   const { textAlign } = useTextAlignStore()
 
   // Returns a simple text with the name of the current font, in case the user
@@ -27,14 +28,16 @@ const FontName = ({ font }: FontNameProps): ReactElement => {
           {font.name}
         </Text>
         <Text
-          weight="600"
+          weight="200"
           size={13}
+          className="opacity-35"
         >
-          {font.variants.length}
+          {`(${font.variants.length})`}
         </Text>
       </div>
       <FavoriteButton font={font.name} />
+      <CollectionsDropdown />
     </div>
   )
 }
-export default FontName
+export default FontTopRow
