@@ -1,34 +1,40 @@
-import Button from 'components/Button'
 import useClickOutside from 'hooks/useClickOutside'
-import { useCallback, type ReactElement, type Dispatch, type SetStateAction } from 'react'
-import { FaPlus } from 'react-icons/fa'
-import { useFavoritesStore } from 'stores/SettingsStore'
+import { type ReactElement, type Dispatch, type SetStateAction } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import CollectionDropdownItem from './CollectionDropdownItem'
+import useCollectionsStore from 'stores/CollectionsStore'
+import useCollections from 'hooks/useCollections'
+import { type TFont } from 'types/FontTypes'
+import CollectionDropdownInput from './CollectionsDropdownInput'
 
 const CollectionsDropdownList = ({
-  setIsOpen,
   isOpen,
+  setIsOpen,
+  font,
 }: {
-  font: any
+  font: TFont
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement | null => {
-  const { favorites } = useFavoritesStore()
+  const collections = useCollectionsStore(s => s.collections)
+  const { toggleInCollection } = useCollections()
 
-  const handleItemClick = useCallback((func?: () => void) => {
-    if (func) {
-      func()
-    }
+  const handleItemClick = (collection: string, font: TFont): void => {
     setIsOpen(false)
-  }, [])
-  const domNode = useClickOutside(() => {
+    toggleInCollection(collection, {
+      fontData: font,
+      from: 'local',
+      date: new Date(),
+    })
+  }
+
+  const menuRef = useClickOutside(() => {
     setIsOpen(false)
   })
 
   return (
     <AnimatePresence>
-      {isOpen ? (
+      {isOpen && (
         <motion.ul
           initial={{
             opacity: 0,
@@ -49,28 +55,27 @@ const CollectionsDropdownList = ({
             stiffness: 363,
             velocity: 0.05,
           }}
-          ref={domNode}
-          className="w-max bg-dark rounded-md p-3 absolute top-full flex flex-col gap-2"
+          ref={menuRef}
+          className="w-max bg-dark rounded-md p-2 absolute top-full flex flex-col gap-2 z-50"
         >
-          <Button
-            onClick={() => alert('Collection created')}
-            className={`gap-2 flex items-center justify-center ${favorites.length ? 'mb-3' : ''}`}
-          >
-            <FaPlus />
-            New collection
-          </Button>
-          {favorites?.map((_: any, i: number) => {
+          <div className="flex ">
+            <CollectionDropdownInput
+              font={font}
+              setIsOpen={setIsOpen}
+            />
+          </div>
+          {Object.keys(collections).map((item, i: number) => {
             return (
               <CollectionDropdownItem
                 key={i}
-                onClick={handleItemClick}
+                onClick={() => handleItemClick(item, font)}
               >
-                {_}
+                {item}
               </CollectionDropdownItem>
             )
           })}
         </motion.ul>
-      ) : null}{' '}
+      )}
     </AnimatePresence>
   )
 }

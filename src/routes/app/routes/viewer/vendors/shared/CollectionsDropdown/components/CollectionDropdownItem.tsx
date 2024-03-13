@@ -14,7 +14,7 @@ const CollectionDropdownItem = ({
   return (
     <li
       onClick={onClick}
-      className="w-full p-1 hover:bg-light rounded-md"
+      className="w-full p-2 hover:bg-light rounded-md transition-all duration-75"
       key={key}
     >
       {children}

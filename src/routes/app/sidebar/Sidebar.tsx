@@ -3,6 +3,7 @@ import LocationLink from './components/LocationLink'
 import { AiFillHome } from 'react-icons/ai'
 import { IoIosSettings } from 'react-icons/io'
 import { RiTestTubeFill } from 'react-icons/ri'
+import { BsCollectionFill } from 'react-icons/bs'
 
 const Sidebar = (): ReactElement => {
   return (
@@ -18,16 +19,22 @@ const Sidebar = (): ReactElement => {
         <AiFillHome />
       </LocationLink>
       <LocationLink
-        to="/app/settings"
-        tooltip="Settings"
+        to="/app/collections"
+        tooltip="Collections"
       >
-        <IoIosSettings />
+        <BsCollectionFill />
       </LocationLink>
       <LocationLink
         to="/app/tests"
         tooltip="Tests"
       >
         <RiTestTubeFill />
+      </LocationLink>
+      <LocationLink
+        to="/app/settings"
+        tooltip="Settings"
+      >
+        <IoIosSettings />
       </LocationLink>
     </div>
   )

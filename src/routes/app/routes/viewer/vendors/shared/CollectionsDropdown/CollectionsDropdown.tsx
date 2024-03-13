@@ -3,17 +3,24 @@ import Tooltip from 'components/Tooltip'
 import { useState, type ReactElement } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import CollectionsDropdownList from './components/CollectionsDropdownList'
+import { type TFont } from 'types/FontTypes'
 
-const CollectionsDropdown = (): ReactElement => {
+type CollectionsDropdownProps = { font: TFont }
+
+const CollectionsDropdown = ({ font }: CollectionsDropdownProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const handleClick = (): void => {
+    setIsOpen(true)
+  }
 
   return (
     <div className="relative">
       <Tooltip text="Add to collections">
-        <button onClick={() => setIsOpen(true)}>{<FaPlus />}</button>
+        <button onClick={handleClick}>{<FaPlus />}</button>
       </Tooltip>
       <CollectionsDropdownList
-        font={null}
+        font={font}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />

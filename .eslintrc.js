@@ -42,6 +42,7 @@ module.exports = {
     '@typescript-eslint/ban-tslint-comment': 0,
     '@typescript-eslint/triple-slash-reference': 0,
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/prefer-optional-chain': 0,
 
     'react/display-name': 0,
     'react/react-in-jsx-scope': 0,

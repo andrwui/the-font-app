@@ -6,6 +6,7 @@ import Settings from './routes/settings/Settings'
 import GlyphViewer from './routes/glyphs/GlyphViewer'
 import Test from './routes/tests/Tests'
 import Header from 'routes/header/Header'
+import Collections from './routes/collections/Collections'
 
 const AppLayout = (): ReactElement => {
   // Returns a wrapper of all the main panels of the application
@@ -30,6 +31,10 @@ const AppLayout = (): ReactElement => {
           <Route
             path="/glyphs/*"
             element={<GlyphViewer />}
+          />
+          <Route
+            path="/collections/"
+            element={<Collections />}
           />
           <Route
             path="/tests/"

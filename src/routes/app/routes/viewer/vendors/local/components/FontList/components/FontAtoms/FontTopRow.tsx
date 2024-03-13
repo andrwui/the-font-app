@@ -36,7 +36,7 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
         </Text>
       </div>
       <FavoriteButton font={font.name} />
-      <CollectionsDropdown />
+      <CollectionsDropdown font={font} />
     </div>
   )
 }

@@ -3,10 +3,10 @@ import ReplaceBar from './components/ReplaceBar'
 import FontControls from './components/FontControls/FontControls'
 import LocalFontViewer from './vendors/local/LocalFontViewer'
 import { Route, Routes } from 'react-router-dom'
-import useLoadFavorites from 'hooks/useLoadFavorites'
+import useLoadLocalStorage from 'hooks/useLoadLocalStorage'
 
 const FontViewer = (): ReactElement => {
-  useLoadFavorites()
+  useLoadLocalStorage()
 
   return (
     <div className="flex h-full w-full flex-col">
