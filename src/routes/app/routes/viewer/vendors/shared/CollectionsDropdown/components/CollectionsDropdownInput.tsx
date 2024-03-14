@@ -9,6 +9,7 @@ import {
   type ChangeEvent,
 } from 'react'
 import { FaPlus } from 'react-icons/fa'
+import useCollectionsStore from 'stores/CollectionsStore'
 import { type TFont } from 'types/FontTypes'
 
 const CollectionDropdownInput = ({
@@ -18,6 +19,7 @@ const CollectionDropdownInput = ({
   font: TFont
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement => {
+  const collections = useCollectionsStore(s => s.collections)
   const { toggleInCollection } = useCollections()
   const [inputValue, setInputValue] = useState<string>('')
   const handleItemKeydown = (e: KeyboardEvent): void => {
@@ -52,7 +54,7 @@ const CollectionDropdownInput = ({
         ref={inputRef}
         type="text"
         name="Collections"
-        className="bg-transparent placeholder-regular text-regular h-10 border-b-2 border-opacity-50 border-light"
+        className={`bg-transparent placeholder-regular text-regular h-10 p-2 ${Object.keys(collections).length > 0 ? 'border-b-2 border-opacity-50 border-light' : ''}`}
         placeholder="Create new collection..."
         onChange={handleInputChange}
       />
