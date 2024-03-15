@@ -1,14 +1,9 @@
-import ActionText from 'components/ActionText'
 import Text from 'components/Text'
 import { type ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const NoCollectionSelected = (): ReactElement => {
   const navigate = useNavigate()
-
-  const handleClick = (): void => {
-    navigate('/app/font-viewer/local', { replace: true })
-  }
 
   return (
     <div className="h-full w-full grid place-items-center">

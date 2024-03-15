@@ -1,8 +1,15 @@
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const CollectionCard = ({ children }: { children: string }): ReactElement => {
+  const location = useLocation().search
+  const isCurrentCollection = decodeURIComponent(location).includes(children)
+
+  console.log('ICC: ', isCurrentCollection)
+  console.log('location: ', location)
+  console.log('decodedLocation: ', decodeURIComponent(location))
+
   const navigate = useNavigate()
 
   const handleClick = (): void => {
@@ -12,7 +19,7 @@ const CollectionCard = ({ children }: { children: string }): ReactElement => {
   return (
     <div
       onClick={handleClick}
-      className="px-5 py-3 bg-dark rounded-md hover:bg-light transition-all duration-75"
+      className={`px-5 py-3 rounded-md cursor-pointer transition-all duration-75 ${isCurrentCollection ? 'bg-accent text-accent' : 'bg-dark text-regular'}`}
     >
       <Text
         size={18}
