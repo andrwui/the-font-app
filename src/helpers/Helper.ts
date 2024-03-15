@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/prefer-reduce-type-parameter */
 
 // The new Object.groupBy is not available in the current electron version i'm in
-export const groupBy = <T, K extends keyof any>(
+export const groupBy = <T, K extends keyof T>(
   array: T[],
   key: (item: T) => K,
 ): Record<K, T[]> => {
@@ -21,3 +21,11 @@ export const groupBy = <T, K extends keyof any>(
     {} as Record<K, T[]>,
   )
 }
+
+type ObjectFilterCondition<T> = (entry: [string, T]) => boolean
+
+export const objectFilter: <T>(
+  obj: Record<string, T>,
+  cond: ObjectFilterCondition<T>,
+) => Record<string, T> = (obj, cond) =>
+  Object.fromEntries(Object.entries(obj).filter(cond))

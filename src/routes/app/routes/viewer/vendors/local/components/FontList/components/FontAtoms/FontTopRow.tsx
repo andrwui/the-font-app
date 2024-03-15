@@ -15,6 +15,8 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
 
   // It also contains the copy button for copying the name of the font to the clipboard.
 
+  const curFont = font[0]
+
   return (
     <div
       className="flex items-center  gap-4 font-light text-secondary-light"
@@ -25,17 +27,17 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
           weight="300"
           size={13}
         >
-          {font.name}
+          {curFont.family}
         </Text>
         <Text
           weight="200"
           size={13}
           className="opacity-35"
         >
-          {`(${font.variants.length})`}
+          {`(${font.length})`}
         </Text>
       </div>
-      <FavoriteButton font={font.name} />
+      <FavoriteButton font={curFont.family} />
       <CollectionsDropdown font={font} />
     </div>
   )

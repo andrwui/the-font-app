@@ -8,8 +8,6 @@ import {
   useTextAlignStore,
 } from 'stores/FontControlsStore'
 
-import { formatFontName } from 'helpers/FontHelper'
-
 import type { TFont } from 'types/FontTypes'
 import { useColorStore } from 'stores/ColorsStore'
 
@@ -19,6 +17,7 @@ type FontDisplayProps = {
 
 const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
   // Declare the stores
+
   const { color } = useColorStore()
   const { text } = useTextReplacerStore()
   const { size } = useSizeStore()
@@ -26,6 +25,8 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
   const { letterSpacing } = useSpacingStore()
   const { italic } = useItalicStore()
   const { textAlign } = useTextAlignStore()
+
+  const curFont = font[0]
 
   // Returns an element with the font to be showed.
   // It has inline styles to both show the actual font
@@ -53,12 +54,12 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
     >
       <p
         style={{
-          fontFamily: `${formatFontName(font.name)}`,
+          fontFamily: `${curFont.family}`,
           width: '100%',
           paddingRight: italic ? '.1em' : '',
         }}
       >
-        {text.trim() || font.name}
+        {`${text || curFont.family}`}
       </p>
     </div>
   )

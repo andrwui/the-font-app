@@ -6,6 +6,9 @@ const FontList = (): ReactElement => {
   // Declare the stores
   const { fonts, filteredFonts } = useLocalFontsStore()
 
+  const fontsValues = Object.values(fonts)
+  const filteredFontsValues = Object.values(filteredFonts)
+
   // Gets the window height with a custom hook for virtuoso's calculations
 
   return (
@@ -13,10 +16,10 @@ const FontList = (): ReactElement => {
     // changing the preview controls's values would mess with the performance
     <Virtuoso
       className="h-full overflow-x-hidden"
-      totalCount={filteredFonts.length || fonts.length}
+      totalCount={filteredFontsValues.length || fontsValues.length}
       itemContent={index => (
         // Returns a Font component for each font
-        <Font font={filteredFonts[index] || fonts[index]} />
+        <Font font={filteredFontsValues[index] || fontsValues[index]} />
       )}
     />
   )

@@ -13,8 +13,8 @@ const SearchButton = (): ReactElement => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const filterFonts = (e: ChangeEvent<HTMLInputElement>): void => {
-    setFilteredFonts(getFontFilters(e, fonts))
     setFilterValue(e.target.value)
+    setFilteredFonts(getFontFilters(e, fonts))
   }
 
   const handleKeydown = (e: KeyboardEvent): void => {

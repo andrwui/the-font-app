@@ -32,7 +32,7 @@ const LocalFontViewer = (): ReactElement => {
 
   useSetLocalFonts(supported, hasAccepted)
 
-  // I ABSOLUTELY know this is ugly and not the best, but right now i cant
+  // I ABSOLUTELY know this is ugly and not the best, but right now i can't
   // come up with nothing else...
 
   return !isReady ? (
@@ -43,7 +43,7 @@ const LocalFontViewer = (): ReactElement => {
     <NotAccepted />
   ) : isLoading ? (
     <LoadingFonts />
-  ) : filterValue && filteredFonts.length < 1 ? (
+  ) : filterValue && Object.keys(filteredFonts).length < 1 ? (
     <NoFontsFound />
   ) : (
     <FontList />
