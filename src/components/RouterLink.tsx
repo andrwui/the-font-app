@@ -1,6 +1,7 @@
 import { type ReactElement, useState } from 'react'
 import { motion } from 'framer-motion'
 import { LuArrowUpRight } from 'react-icons/lu'
+import { useNavigate } from 'react-router-dom'
 
 type LinkProps = {
   children: React.ReactNode
@@ -9,26 +10,30 @@ type LinkProps = {
   to: string
   animated?: boolean
   icon?: boolean
+  replace?: boolean
 }
 
-const Link = ({
+const RouterLink = ({
   to,
   children,
   className,
   style,
   animated,
   icon,
+  replace,
 }: LinkProps): ReactElement => {
   const [isHovering, setIsHovering] = useState(false)
 
   const handleMouseEnter = (): void => setIsHovering(true)
   const handleMouseLeave = (): void => setIsHovering(false)
 
+  const navigate = useNavigate()
+
   return (
-    <a
+    <p
       className={`cursor-pointer items-center justify-center w-max inline-flex ${!animated ? 'underline underline-offset-2' : 'relative'} ${className || ''}`}
       style={{ ...style }}
-      href={to}
+      onClick={() => navigate(to, { replace: replace ? true : false })}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -52,8 +57,8 @@ const Link = ({
           style={{ width: '100%', transformOrigin: isHovering ? 'left' : 'right' }}
         />
       )}
-    </a>
+    </p>
   )
 }
 
-export default Link
+export default RouterLink

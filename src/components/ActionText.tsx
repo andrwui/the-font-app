@@ -31,11 +31,23 @@ const ActionText = ({
       {children}
       <motion.span
         className="origin-left h-[1px] bg-accent absolute bottom-[2px]"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: isHovering ? 1 : 0 }}
-        exit={{ scaleX: 0 }}
+        initial={{
+          scaleX: 0,
+          filter: 'blur(2px)',
+        }}
+        animate={{
+          scaleX: isHovering ? 1 : 0,
+          filter: isHovering ? 'blur(0px)' : 'blur(2px)',
+        }}
+        exit={{
+          scaleX: 0,
+          filter: 'blur(2px)',
+        }}
         transition={{ duration: 0.2 }}
-        style={{ width: '100%', transformOrigin: isHovering ? 'left' : 'right' }}
+        style={{
+          width: '100%',
+          transformOrigin: isHovering ? 'left' : 'right',
+        }}
       />
     </a>
   )

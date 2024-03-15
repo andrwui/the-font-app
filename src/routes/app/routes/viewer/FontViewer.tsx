@@ -6,8 +6,6 @@ import { Route, Routes } from 'react-router-dom'
 import useLoadLocalStorage from 'hooks/useLoadLocalStorage'
 
 const FontViewer = (): ReactElement => {
-  useLoadLocalStorage()
-
   return (
     <div className="flex h-full w-full flex-col">
       <FontControls />

@@ -6,7 +6,7 @@ const CollectionList = (): ReactElement => {
   const collections = useCollectionsStore(s => s.collections)
 
   return (
-    <div className="flex flex-col gap-4 w-1/8 h-full pr-6">
+    <div className="flex flex-col gap-4 w-2/12 h-full pr-6">
       {Object.keys(collections).map(col => {
         return <CollectionCard key={''}>{col}</CollectionCard>
       })}
