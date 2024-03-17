@@ -4,12 +4,13 @@ import { type TextAlignTypes, type ItalicTypes } from './stores/FontControlsStor
 import 'react'
 
 declare module 'react' {
-  interface CSSProperties {
+  type CSSProperties = {
     textWrap?: string
   }
 }
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Window {
     queryLocalFonts: () => Promise<
       Array<{
@@ -17,27 +18,9 @@ declare global {
         fullName: string
         postscriptName: string
         style: string
+        blob: () => Promise<Blob>
       }>
     >
-    currentTheme: Theme
-    exposedStores: {
-      localFonts: {
-        fonts: Font[]
-        isLoading: boolean | null
-        filteredFonts: Font[]
-        filterValue: string
-      }
-      fontControls: {
-        size: number
-        weight: number
-        letterSpacing: number
-        text: string
-        italic: ItalicTypes
-        textAlign: TextAlignTypes
-      }
-    }
-
-    DEV_ENV: boolean
   }
 }
 

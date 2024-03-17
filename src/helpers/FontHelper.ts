@@ -1,10 +1,6 @@
 import type { TLocalFonts } from 'types/FontTypes'
 import { type ChangeEvent } from 'react'
 
-// Formats the font families for css to pick them up correctly (almost) always.
-export const formatFontName = (fontName: string): string => {
-  return fontName.includes(' ') ? `"${fontName}"` : fontName
-}
 // The filter was too long so i just broke it up into an independent function.
 export const getFontFilters = (
   e: ChangeEvent<HTMLInputElement>,
@@ -19,3 +15,5 @@ export const getFontFilters = (
   }
   return filteredRecord
 }
+
+export const getFontByFontName = (fontName: string, from: string) => {}

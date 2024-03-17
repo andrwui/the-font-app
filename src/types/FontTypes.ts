@@ -5,6 +5,7 @@ export type FontData = {
   fullName: string
   postscriptName: string
   style: string
+  blob: () => Promise<Blob>
 }
 // Type for a singular local font
 export type TFont = FontData[]

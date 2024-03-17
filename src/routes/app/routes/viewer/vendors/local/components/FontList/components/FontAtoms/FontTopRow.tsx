@@ -3,12 +3,15 @@ import type { TFont } from 'types/FontTypes'
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
 import FavoriteButton from './FavoriteButton'
-import CollectionsDropdown from 'routes/app/routes/viewer/vendors/shared/CollectionsDropdown/CollectionsDropdown'
+import CollectionsDropdown from '../../../../../shared/CollectionsDropdown/CollectionsDropdown'
+import Button from 'components/Button'
+import { useNavigate } from 'react-router-dom'
 type FontTopRowProps = {
   font: TFont
 }
 const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
   const { textAlign } = useTextAlignStore()
+  const navigate = useNavigate()
 
   // Returns a simple text with the name of the current font, in case the user
   // replaced the text of the font displayers.
@@ -39,6 +42,11 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
       </div>
       <FavoriteButton font={curFont.family} />
       <CollectionsDropdown font={font} />
+      <Button
+        onClick={() => navigate(`/app/glyphs?font=${font[0].family}`, { replace: false })}
+      >
+        G
+      </Button>
     </div>
   )
 }

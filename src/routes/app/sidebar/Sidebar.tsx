@@ -24,12 +24,15 @@ const Sidebar = (): ReactElement => {
       >
         <BsCollectionFill />
       </LocationLink>
-      <LocationLink
-        to="/app/tests"
-        tooltip="Tests"
-      >
-        <RiTestTubeFill />
-      </LocationLink>
+      {window.dev && (
+        <LocationLink
+          to="/app/tests"
+          tooltip="Tests"
+        >
+          {' '}
+          <RiTestTubeFill />
+        </LocationLink>
+      )}
       <LocationLink
         to="/app/settings"
         tooltip="Settings"

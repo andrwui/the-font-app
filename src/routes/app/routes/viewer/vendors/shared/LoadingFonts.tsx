@@ -9,7 +9,7 @@ const LoadingFonts = (): ReactElement => {
       h-[calc(100vh-80px)] place-items-center text-foreground"
     >
       <div className="flex h-max flex-col place-items-center justify-center gap-2">
-        <Text>Loading fonts...</Text>
+        <Text>Loading...</Text>
         <Spinner />
       </div>
     </div>
