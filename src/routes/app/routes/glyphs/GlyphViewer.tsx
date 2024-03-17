@@ -46,7 +46,7 @@ const GlyphViewer = (): ReactElement => {
   return !isLoading ? (
     <div className="flex flex-col w-full">
       <FontControls />
-      <div className="grid size-full grid-cols-2 h-full">
+      <div className="grid size-full grid-cols-2 h-full overflow-y-auto">
         <div
           className="relative grid size-full place-items-center text-[25em]"
           style={{
@@ -80,7 +80,7 @@ const GlyphViewer = (): ReactElement => {
                     <Text
                       onClick={async () => {
                         await navigator.clipboard.writeText(
-                          toValidSVG(glyph.getPath().toSVG(0)),
+                          toValidSVG(glyph.getPath().toSVG(5)),
                         )
                         console.log('copiado bobo')
                       }}
