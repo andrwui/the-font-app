@@ -8,11 +8,12 @@ import {
   useTextAlignStore,
 } from 'stores/FontControlsStore'
 
-import type { LocalFont } from 'types/FontTypes'
+import type { FontData, GoogleFont, LocalFont } from 'types/FontTypes'
 import { useColorStore } from 'stores/ColorsStore'
+import { isLocalFont } from 'helpers/FontHelper'
 
 type FontDisplayProps = {
-  font: LocalFont
+  font: LocalFont | GoogleFont
 }
 
 const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
@@ -26,7 +27,13 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
   const { italic } = useItalicStore()
   const { textAlign } = useTextAlignStore()
 
-  const curFont = font[0]
+  let curFont: FontData | GoogleFont
+  if (isLocalFont(font)) {
+    curFont = font[0]
+  } else {
+    curFont = font
+  }
+  const fontFamily = curFont.family
 
   // Returns an element with the font to be showed.
   // It has inline styles to both show the actual font
@@ -54,12 +61,12 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
     >
       <p
         style={{
-          fontFamily: `${curFont.family}`,
+          fontFamily: `${fontFamily}`,
           width: '100%',
           paddingRight: italic ? '.1em' : '',
         }}
       >
-        {`${text || curFont.family}`}
+        {`${text || fontFamily}`}
       </p>
     </div>
   )

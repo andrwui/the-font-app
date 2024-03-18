@@ -4,7 +4,7 @@ import { AiFillHome } from 'react-icons/ai'
 import { IoIosSettings } from 'react-icons/io'
 import { RiTestTubeFill } from 'react-icons/ri'
 import { BsCollectionFill } from 'react-icons/bs'
-
+import { SiGooglefonts } from 'react-icons/si'
 const Sidebar = (): ReactElement => {
   return (
     // The component of the sidebar, displays the links to navigate between features
@@ -17,6 +17,12 @@ const Sidebar = (): ReactElement => {
         tooltip="Local Fonts"
       >
         <AiFillHome />
+      </LocationLink>
+      <LocationLink
+        to="/app/font-viewer/google"
+        tooltip="Google Fonts"
+      >
+        <SiGooglefonts />
       </LocationLink>
       <LocationLink
         to="/app/collections"

@@ -1,7 +1,7 @@
 import Spinner from 'components/Spinner'
 import Text from 'components/Text'
 import { type ReactElement } from 'react'
-const LoadingFonts = (): ReactElement => {
+const Loading = (): ReactElement => {
   // Returns a placeholder element for when no fonts are found and the filter is currently set.
   return (
     <div
@@ -16,4 +16,4 @@ const LoadingFonts = (): ReactElement => {
   )
 }
 
-export default LoadingFonts
+export default Loading

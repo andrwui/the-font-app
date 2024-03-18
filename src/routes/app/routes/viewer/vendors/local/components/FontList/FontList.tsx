@@ -1,7 +1,12 @@
 import { type ReactElement } from 'react'
 import { Virtuoso } from 'react-virtuoso'
-import Font from './components/Font'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
+import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
+import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
+import FavoriteButton from '../../../../../generics/Font/components/FavoriteButton'
+import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
+import GlyphButton from 'routes/app/routes/generics/Font/components/GlyphButton'
+import CollectionsDropdown from '../../../shared/CollectionsDropdown/CollectionsDropdown'
 const FontList = (): ReactElement => {
   // Declare the stores
   const { fonts, filteredFonts } = useLocalFontsStore()
@@ -17,10 +22,23 @@ const FontList = (): ReactElement => {
     <Virtuoso
       className="h-full overflow-x-hidden"
       totalCount={filteredFontsValues.length || fontsValues.length}
-      itemContent={index => (
-        // Returns a Font component for each font
-        <Font font={filteredFontsValues[index] || fontsValues[index]} />
-      )}
+      itemContent={index => {
+        const font = filteredFontsValues[index] || fontsValues[index]
+        return (
+          // Returns a Font component for each font
+          <FontContainer>
+            <FontTopRowContainer
+              family={font[0].family}
+              familyLength={font.length}
+            >
+              <FavoriteButton font={font[0].family} />
+              <CollectionsDropdown font={font} />
+              <GlyphButton font={font} />
+            </FontTopRowContainer>
+            <FontDisplay font={font} />
+          </FontContainer>
+        )
+      }}
     />
   )
 }

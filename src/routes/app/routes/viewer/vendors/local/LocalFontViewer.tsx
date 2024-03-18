@@ -2,7 +2,7 @@ import { type ReactElement, useEffect, useState } from 'react'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
 import { requestLocalFontsPermission } from 'helpers/LocalFontPermissions'
 import NoFontsFound from '../shared/NoFontsFound'
-import LoadingFonts from '../shared/LoadingFonts'
+import Loading from '../../../generics/Loading'
 import FontList from './components/FontList/FontList'
 import useSetLocalFonts from 'hooks/useSetFonts'
 import NotSupported from './components/NotSupported'
@@ -36,13 +36,13 @@ const LocalFontViewer = (): ReactElement => {
   // come up with nothing else...
 
   return !isReady ? (
-    <LoadingFonts />
+    <Loading />
   ) : !supported ? (
     <NotSupported />
   ) : !hasAccepted ? (
     <NotAccepted />
   ) : isLoading ? (
-    <LoadingFonts />
+    <Loading />
   ) : filterValue && Object.keys(filteredFonts).length < 1 ? (
     <NoFontsFound />
   ) : (

@@ -3,9 +3,9 @@ import Tooltip from 'components/Tooltip'
 import { useState, type ReactElement } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import CollectionsDropdownList from './components/CollectionsDropdownList'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 
-type CollectionsDropdownProps = { font: TFont }
+type CollectionsDropdownProps = { font: LocalFont }
 
 const CollectionsDropdown = ({ font }: CollectionsDropdownProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(false)

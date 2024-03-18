@@ -35,6 +35,9 @@ dependencies:
   react-virtuoso:
     specifier: ^4.6.2
     version: 4.6.3(react-dom@18.2.0)(react@18.2.0)
+  webfontloader:
+    specifier: ^1.6.28
+    version: 1.6.28
   zustand:
     specifier: ^4.4.6
     version: 4.5.0(@types/react@18.2.55)(react@18.2.0)
@@ -55,6 +58,9 @@ devDependencies:
   '@types/react-window':
     specifier: ^1.8.8
     version: 1.8.8
+  '@types/webfontloader':
+    specifier: ^1.6.38
+    version: 1.6.38
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.10.0
     version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -1073,6 +1079,10 @@ packages:
 
   /@types/semver@7.5.7:
     resolution: {integrity: sha512-/wdoPq1QqkSj9/QOeKkFquEuPzQbHTWAMPH/PaUMB+JuR31lXhlWXRZ52IpfDYVlDOUBvX09uBrPwxGT1hjNBg==}
+    dev: true
+
+  /@types/webfontloader@1.6.38:
+    resolution: {integrity: sha512-kUaF72Fv202suFx6yBrwXqeVRMx7hGtJTesyESZgn9sEPCUeDXm2p0SiyS1MTqW74nQP4p7JyrOCwZ7pNFns4w==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3):
@@ -3955,6 +3965,10 @@ packages:
       sass: 1.70.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  /webfontloader@1.6.28:
+    resolution: {integrity: sha512-Egb0oFEga6f+nSgasH3E0M405Pzn6y3/9tOVanv/DLfa1YBIgcv90L18YyWnvXkRbIM17v5Kv6IT2N6g1x5tvQ==}
+    dev: false
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}

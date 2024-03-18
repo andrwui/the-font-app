@@ -1,9 +1,12 @@
 import { type Font, parse } from 'opentype.js'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 
 const useFontHelper = (): {
-  getFontFromFontName: (fontName: string, from: 'google' | 'local') => TFont | undefined
+  getFontFromFontName: (
+    fontName: string,
+    from: 'google' | 'local',
+  ) => LocalFont | undefined
   getOpenTypeFont: (fontBlob: Blob) => Promise<Font | undefined>
 } => {
   const { fonts } = useLocalFontsStore()
@@ -11,7 +14,7 @@ const useFontHelper = (): {
   const getFontFromFontName = (
     fontName: string,
     from: 'google' | 'local',
-  ): TFont | undefined => {
+  ): LocalFont | undefined => {
     let match
     if (from === 'local') {
       console.log('fontName: ', fontName)

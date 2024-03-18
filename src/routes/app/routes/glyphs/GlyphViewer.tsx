@@ -3,9 +3,9 @@ import { useState, type ReactElement, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { type Font } from 'opentype.js'
 import useFontHelper from 'hooks/useFontHelper'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 import { toValidSVG } from 'helpers/SVGHelper'
-import LoadingFonts from '../viewer/vendors/shared/LoadingFonts'
+import Loading from '../generics/Loading'
 
 import { FaArrowLeft } from 'react-icons/fa6'
 import FontControls from '../viewer/components/FontControls/FontControls'
@@ -14,7 +14,7 @@ const GlyphViewer = (): ReactElement => {
   const { getFontFromFontName, getOpenTypeFont } = useFontHelper()
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [font, setFont] = useState<TFont | undefined>([] as TFont)
+  const [font, setFont] = useState<LocalFont | undefined>([] as LocalFont)
   const [otFont, setOtFont] = useState<Font>()
   const [currentGlyph, setCurrentGlyph] = useState<string>('A')
 
@@ -104,7 +104,7 @@ const GlyphViewer = (): ReactElement => {
       </div>
     </div>
   ) : (
-    <LoadingFonts />
+    <Loading />
   )
 }
 export default GlyphViewer

@@ -1,14 +1,14 @@
 import { type ReactElement } from 'react'
 import { useSizeStore } from 'stores/FontControlsStore'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 import FontDisplay from './FontAtoms/FontDisplay'
 import FontTopRow from './FontAtoms/FontTopRow'
 
-type TFontProps = {
-  font: TFont
+type FontProps = {
+  font: LocalFont
 }
 
-const Font = ({ font }: TFontProps): ReactElement => {
+const Font = ({ font }: FontProps): ReactElement => {
   const { size } = useSizeStore()
 
   // Returns a wrapper for the FontName and FontDisplay elements.

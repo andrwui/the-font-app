@@ -1,11 +1,9 @@
-import { type TFont } from './FontTypes'
+import { type LocalFont } from './FontTypes'
 
 export type CollectionItem = {
-  fontData: TFont
+  fontData: LocalFont
   from: 'google' | 'local'
   date: Date
 }
 
 export type Collection = CollectionItem[]
-
-export type Collections = Record<string, Collection>

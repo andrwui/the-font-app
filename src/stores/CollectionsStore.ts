@@ -1,13 +1,13 @@
 import { create } from 'zustand'
-import { type CollectionItem, type Collections } from 'types/Collections'
+import { type Collection, type CollectionItem } from 'types/Collections'
 
 type CollectionStore = {
-  collections: Collections
+  collections: Record<string, Collection>
   addCollection: (key: string) => void
   removeCollection: (key: string) => void
   addItem: (collection: string, item: CollectionItem) => void
   removeItem: (collection: string, item: CollectionItem) => void
-  setCollections: (collections: Collections) => void
+  setCollections: (collections: Record<string, Collection>) => void
 }
 
 const useCollectionsStore = create<CollectionStore>(set => ({
@@ -39,12 +39,12 @@ const useCollectionsStore = create<CollectionStore>(set => ({
       collections: {
         ...state.collections,
         [collection]: state.collections[collection].filter(
-          i => i.fontData.name !== item.fontData.name,
+          i => i.fontData[0].family !== item.fontData[0].family,
         ),
       },
     }))
   },
-  setCollections: (collections: Collections) => {
+  setCollections: (collections: Record<string, Collection>) => {
     set({ collections })
   },
 }))

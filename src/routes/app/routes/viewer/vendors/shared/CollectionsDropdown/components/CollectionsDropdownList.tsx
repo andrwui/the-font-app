@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import CollectionDropdownItem from './CollectionDropdownItem'
 import useCollectionsStore from 'stores/CollectionsStore'
 import useCollections from 'hooks/useCollections'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 import CollectionDropdownInput from './CollectionsDropdownInput'
 
 const CollectionsDropdownList = ({
@@ -12,14 +12,14 @@ const CollectionsDropdownList = ({
   setIsOpen,
   font,
 }: {
-  font: TFont
+  font: LocalFont
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement | null => {
   const collections = useCollectionsStore(s => s.collections)
   const { toggleInCollection } = useCollections()
 
-  const handleItemClick = (collection: string, font: TFont): void => {
+  const handleItemClick = (collection: string, font: LocalFont): void => {
     setIsOpen(false)
     toggleInCollection(collection, {
       fontData: font,

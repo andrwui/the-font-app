@@ -1,14 +1,13 @@
 import { useTextAlignStore } from 'stores/FontControlsStore'
-import type { TFont } from 'types/FontTypes'
+import type { LocalFont } from 'types/FontTypes'
 import { type ReactElement } from 'react'
 import Text from 'components/Text'
-import FavoriteButton from './FavoriteButton'
+import FavoriteButton from '../../../../../../../generics/Font/components/FavoriteButton'
 import CollectionsDropdown from '../../../../../shared/CollectionsDropdown/CollectionsDropdown'
-import Button from 'components/Button'
-import GlyphButton from './GlyphButton'
+import GlyphButton from '../../../../../../../generics/Font/components/GlyphButton'
 
 type FontTopRowProps = {
-  font: TFont
+  font: LocalFont
 }
 const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
   const { textAlign } = useTextAlignStore()
@@ -19,6 +18,8 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
   // It also contains the copy button for copying the name of the font to the clipboard.
 
   const curFont = font[0]
+  const family = curFont.family
+  const familyLength = font.length
 
   return (
     <div
@@ -30,17 +31,17 @@ const FontTopRow = ({ font }: FontTopRowProps): ReactElement => {
           weight="300"
           size={13}
         >
-          {curFont.family}
+          {family}
         </Text>
         <Text
           weight="200"
           size={13}
           className="opacity-35"
         >
-          {`(${font.length})`}
+          {familyLength}
         </Text>
       </div>
-      <FavoriteButton font={curFont.family} />
+      <FavoriteButton font={family} />
       <CollectionsDropdown font={font} />
       <GlyphButton font={font} />
     </div>

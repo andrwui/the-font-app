@@ -10,13 +10,13 @@ import {
 } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import useCollectionsStore from 'stores/CollectionsStore'
-import { type TFont } from 'types/FontTypes'
+import { type LocalFont } from 'types/FontTypes'
 
 const CollectionDropdownInput = ({
   setIsOpen,
   font,
 }: {
-  font: TFont
+  font: LocalFont
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement => {
   const collections = useCollectionsStore(s => s.collections)
