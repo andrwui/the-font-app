@@ -1,0 +1,62 @@
+import {
+  useEffect,
+  type Dispatch,
+  type ReactElement,
+  type SetStateAction,
+  useState,
+} from 'react'
+import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
+import FavoriteButton from 'routes/app/routes/generics/Font/components/FavoriteButton'
+import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
+import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
+import { type GFItems, type GoogleFont } from 'types/FontTypes'
+import WebFont from 'webfontloader'
+
+const GoogleFontDisplay = ({
+  font,
+  setLoadedFonts,
+  loadedFonts,
+}: {
+  font: GoogleFont
+  setLoadedFonts: Dispatch<SetStateAction<GFItems>>
+  loadedFonts: GFItems
+}): ReactElement => {
+  const [loading, setLoading] = useState<boolean>()
+
+  useEffect(() => {
+    if (!loadedFonts.find(f => f === font)) {
+      console.log(loadedFonts)
+      WebFont.load({
+        google: {
+          families: [font.family],
+        },
+        loading: () => {
+          setLoading(true)
+        },
+        fontactive: () => {
+          setLoading(false)
+        },
+      })
+      setLoadedFonts([...loadedFonts, font])
+    }
+  }, [font])
+
+  return (
+    <FontContainer>
+      <FontTopRowContainer
+        family={font.family}
+        familyLength={font.variants.length}
+      >
+        <FavoriteButton font={font.family} />
+      </FontTopRowContainer>
+      {
+        <FontDisplay
+          font={font}
+          isLoading={loading}
+        />
+      }
+    </FontContainer>
+  )
+}
+
+export default GoogleFontDisplay

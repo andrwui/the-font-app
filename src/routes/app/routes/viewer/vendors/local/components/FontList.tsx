@@ -3,10 +3,10 @@ import { Virtuoso } from 'react-virtuoso'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
 import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
 import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
-import FavoriteButton from '../../../../../generics/Font/components/FavoriteButton'
+import FavoriteButton from '../../../../generics/Font/components/FavoriteButton'
 import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
 import GlyphButton from 'routes/app/routes/generics/Font/components/GlyphButton'
-import CollectionsDropdown from '../../../shared/CollectionsDropdown/CollectionsDropdown'
+import CollectionsDropdown from '../../shared/CollectionsDropdown/CollectionsDropdown'
 const FontList = (): ReactElement => {
   // Declare the stores
   const { fonts, filteredFonts } = useLocalFontsStore()

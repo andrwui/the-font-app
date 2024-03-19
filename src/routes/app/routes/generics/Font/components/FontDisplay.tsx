@@ -11,12 +11,14 @@ import {
 import type { FontData, GoogleFont, LocalFont } from 'types/FontTypes'
 import { useColorStore } from 'stores/ColorsStore'
 import { isLocalFont } from 'helpers/FontHelper'
+import FontSpinner from './FontSpinner'
 
 type FontDisplayProps = {
   font: LocalFont | GoogleFont
+  isLoading?: boolean
 }
 
-const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
+const FontDisplay = ({ font, isLoading }: FontDisplayProps): ReactElement => {
   // Declare the stores
 
   const { color } = useColorStore()
@@ -59,15 +61,19 @@ const FontDisplay = ({ font }: FontDisplayProps): ReactElement => {
         color: color ? color : '',
       }}
     >
-      <p
-        style={{
-          fontFamily: `${fontFamily}`,
-          width: '100%',
-          paddingRight: italic ? '.1em' : '',
-        }}
-      >
-        {`${text || fontFamily}`}
-      </p>
+      {!isLoading ? (
+        <p
+          style={{
+            fontFamily: `${fontFamily}`,
+            width: '100%',
+            paddingRight: italic ? '.1em' : '',
+          }}
+        >
+          {`${text || fontFamily}`}
+        </p>
+      ) : (
+        <FontSpinner size={size} />
+      )}
     </div>
   )
 }

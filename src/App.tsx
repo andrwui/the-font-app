@@ -27,7 +27,7 @@ const App = (): ReactElement => {
           element={
             <Navigate
               replace
-              to="/app/font-viewer/local/"
+              to="/app/font-viewer/local"
             />
           }
         />

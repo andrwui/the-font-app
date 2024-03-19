@@ -1,6 +1,9 @@
 import { type ReactElement } from 'react'
 import { useLocation } from 'react-router-dom'
-import Font from 'routes/app/routes/viewer/vendors/local/components/FontList/components/Font'
+import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
+import FavoriteButton from 'routes/app/routes/generics/Font/components/FavoriteButton'
+import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
+import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
 import useCollectionsStore from 'stores/CollectionsStore'
 
 const CollectionFontList = ({
@@ -17,10 +20,10 @@ const CollectionFontList = ({
       {collections[curCollection] &&
         collections[curCollection].map((el, i) => {
           return (
-            <Font
-              key={i}
-              font={el.fontData}
-            />
+            <FontContainer>
+              <FontTopRowContainer></FontTopRowContainer>
+              <FontDisplay />
+            </FontContainer>
           )
         })}
     </div>

@@ -1,18 +1,13 @@
 import { type ReactElement, useEffect, useState } from 'react'
-import WebFont from 'webfontloader'
 import Loading from '../../../generics/Loading'
 import { Virtuoso } from 'react-virtuoso'
-import { useTextReplacerStore } from 'stores/FontControlsStore'
 import { type GFItems, type GFResponse } from 'types/FontTypes'
-import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
-import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
-import FavoriteButton from '../../../generics/Font/components/FavoriteButton'
-import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
+import GoogleFontDisplay from './GoogleFontDisplay'
 const GoogleFontViewer = (): ReactElement => {
   const [googleFonts, setGoogleFonts] = useState<GFItems>()
+  const [loadedFonts, setLoadedFonts] = useState<GFItems>([])
 
   const API_KEY = 'AIzaSyAffANcQBH_Ld8PS7W_ai2iQTHSSiN320c' as const
-  const { text } = useTextReplacerStore()
 
   useEffect(() => {
     fetch(
@@ -23,9 +18,11 @@ const GoogleFontViewer = (): ReactElement => {
         setGoogleFonts(data.items)
         console.log(data)
       })
-  }, [])
 
-  const loadedFonts: GFItems = []
+    return () => {
+      setLoadedFonts([])
+    }
+  }, [])
 
   return googleFonts ? (
     <Virtuoso
@@ -33,24 +30,12 @@ const GoogleFontViewer = (): ReactElement => {
       totalCount={googleFonts.length}
       itemContent={index => {
         const font = googleFonts[index]
-        if (!loadedFonts.find(f => f === font)) {
-          WebFont.load({
-            google: {
-              families: [font.family],
-            },
-          })
-          loadedFonts.push(googleFonts[index])
-        }
         return (
-          <FontContainer>
-            <FontTopRowContainer
-              family={font.family}
-              familyLength={font.variants.length}
-            >
-              <FavoriteButton font={font.family} />
-            </FontTopRowContainer>
-            <FontDisplay font={font} />
-          </FontContainer>
+          <GoogleFontDisplay
+            font={font}
+            setLoadedFonts={setLoadedFonts}
+            loadedFonts={loadedFonts}
+          />
         )
       }}
     />
