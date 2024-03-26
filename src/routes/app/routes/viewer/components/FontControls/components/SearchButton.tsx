@@ -1,12 +1,16 @@
 import { type ReactElement, type ChangeEvent, useState, useRef, useEffect } from 'react'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
-import { getFontFilters } from 'helpers/FontHelper'
+import { getGoogleFontFilters, getLocalFontFilters } from 'helpers/FontHelper'
 import { AnimatePresence, motion } from 'framer-motion'
 import Button from 'components/Button'
 import { IoSearch } from 'react-icons/io5'
 import Text from 'components/Text'
+import { useFontFilterStore } from 'stores/FontControlsStore'
+import { useGoogleFontStore } from 'stores/GoogleFontsStore'
 const SearchButton = (): ReactElement => {
-  const { fonts, setFilteredFonts, filterValue, setFilterValue } = useLocalFontsStore()
+  const { localFonts, setFilteredLocalFonts } = useLocalFontsStore()
+  const { googleFonts, setFilteredGoogleFonts } = useGoogleFontStore()
+  const { filterValue, setFilterValue } = useFontFilterStore()
 
   const [isVisible, setIsVisible] = useState(false)
 
@@ -14,7 +18,8 @@ const SearchButton = (): ReactElement => {
 
   const filterFonts = (e: ChangeEvent<HTMLInputElement>): void => {
     setFilterValue(e.target.value)
-    setFilteredFonts(getFontFilters(e, fonts))
+    setFilteredGoogleFonts(getGoogleFontFilters(e, googleFonts))
+    setFilteredLocalFonts(getLocalFontFilters(e, localFonts))
   }
 
   const handleKeydown = (e: KeyboardEvent): void => {

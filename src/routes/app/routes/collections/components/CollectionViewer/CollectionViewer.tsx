@@ -18,7 +18,7 @@ const CollectionViewer = (): ReactElement => {
         <NoCollections />
       ) : curCollection ? (
         collections[curCollection].length ? (
-          <CollectionFontList currCollection={curCollection} />
+          <CollectionFontList />
         ) : (
           <NoItemsInCollection />
         )

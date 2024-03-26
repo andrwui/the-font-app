@@ -3,8 +3,9 @@ import Loading from '../../../generics/Loading'
 import { Virtuoso } from 'react-virtuoso'
 import { type GFItems, type GFResponse } from 'types/FontTypes'
 import GoogleFontDisplay from './GoogleFontDisplay'
+import { useGoogleFontStore } from 'stores/GoogleFontsStore'
 const GoogleFontViewer = (): ReactElement => {
-  const [googleFonts, setGoogleFonts] = useState<GFItems>()
+  const { googleFonts, setGoogleFonts, filteredGoogleFonts } = useGoogleFontStore()
   const [loadedFonts, setLoadedFonts] = useState<GFItems>([])
 
   const API_KEY = 'AIzaSyAffANcQBH_Ld8PS7W_ai2iQTHSSiN320c' as const
@@ -27,9 +28,9 @@ const GoogleFontViewer = (): ReactElement => {
   return googleFonts ? (
     <Virtuoso
       className="h-full overflow-x-hidden"
-      totalCount={googleFonts.length}
+      totalCount={filteredGoogleFonts.length || googleFonts.length}
       itemContent={index => {
-        const font = googleFonts[index]
+        const font = filteredGoogleFonts[index] || googleFonts[index]
         return (
           <GoogleFontDisplay
             font={font}

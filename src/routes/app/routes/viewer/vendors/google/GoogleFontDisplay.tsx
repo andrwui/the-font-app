@@ -11,6 +11,7 @@ import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
 import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
 import { type GFItems, type GoogleFont } from 'types/FontTypes'
 import WebFont from 'webfontloader'
+import CollectionsDropdown from '../shared/CollectionsDropdown/CollectionsDropdown'
 
 const GoogleFontDisplay = ({
   font,
@@ -25,7 +26,6 @@ const GoogleFontDisplay = ({
 
   useEffect(() => {
     if (!loadedFonts.find(f => f === font)) {
-      console.log(loadedFonts)
       WebFont.load({
         google: {
           families: [font.family],
@@ -48,6 +48,7 @@ const GoogleFontDisplay = ({
         familyLength={font.variants.length}
       >
         <FavoriteButton font={font.family} />
+        <CollectionsDropdown font={font} />
       </FontTopRowContainer>
       {
         <FontDisplay

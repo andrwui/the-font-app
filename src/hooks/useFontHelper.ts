@@ -1,31 +1,40 @@
 import { type Font, parse } from 'opentype.js'
+import { useGoogleFontStore } from 'stores/GoogleFontsStore'
 import { useLocalFontsStore } from 'stores/LocalFontsStore'
-import { type LocalFont } from 'types/FontTypes'
+import { type GoogleFont, type LocalFont } from 'types/FontTypes'
 
 const useFontHelper = (): {
   getFontFromFontName: (
     fontName: string,
     from: 'google' | 'local',
-  ) => LocalFont | undefined
-  getOpenTypeFont: (fontBlob: Blob) => Promise<Font | undefined>
+  ) => LocalFont | GoogleFont | undefined
+  getLocalOpenTypeFont: (font: LocalFont) => Promise<Font | undefined>
+  getGoogleOpenTypeFont: (font: GoogleFont) => Promise<Font | undefined>
 } => {
-  const { fonts } = useLocalFontsStore()
+  const { localFonts } = useLocalFontsStore()
+  const { googleFonts } = useGoogleFontStore()
 
   const getFontFromFontName = (
     fontName: string,
     from: 'google' | 'local',
-  ): LocalFont | undefined => {
+  ): LocalFont | GoogleFont | undefined => {
     let match
     if (from === 'local') {
-      console.log('fontName: ', fontName)
-      console.log('localFonts: ', fonts)
-      match = fonts[fontName]
-      console.log('match: ', match)
+      match = localFonts[fontName]
+    }
+    if (from === 'google') {
+      match = googleFonts.find(i => {
+        console.log('i.family: ', i.family)
+        console.log('fontName: ', fontName)
+        console.log(i.family === fontName)
+        return i.family === fontName
+      })
     }
     return match
   }
 
-  const getOpenTypeFont = async (fontBlob: Blob): Promise<Font | undefined> => {
+  const getLocalOpenTypeFont = async (font: LocalFont): Promise<Font | undefined> => {
+    const fontBlob = await font[0].blob()
     const fontBuffer = await fontBlob.arrayBuffer()
     let fontFile
     try {
@@ -36,7 +45,26 @@ const useFontHelper = (): {
     return fontFile
   }
 
-  return { getFontFromFontName, getOpenTypeFont }
+  const getGoogleOpenTypeFont = async (font: GoogleFont): Promise<Font | undefined> => {
+    const url = Object.values(font.files)[0]
+    console.log(url)
+    const fontBuffer = fetch(url).then(async res => await res.arrayBuffer())
+    console.log(await fontBuffer)
+    console.log(url)
+    let fontFile
+    try {
+      console.log('parseando')
+      fontFile = parse(await fontBuffer)
+      console.log('termino de parsear')
+    } catch (e) {
+      console.log(e)
+      return undefined
+    }
+    console.log('devuelve')
+    return fontFile
+  }
+
+  return { getFontFromFontName, getLocalOpenTypeFont, getGoogleOpenTypeFont }
 }
 
 export default useFontHelper

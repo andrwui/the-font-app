@@ -3,45 +3,53 @@ import { useState, type ReactElement, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { type Font } from 'opentype.js'
 import useFontHelper from 'hooks/useFontHelper'
-import { type LocalFont } from 'types/FontTypes'
+import { type GoogleFont, type LocalFont } from 'types/FontTypes'
 import { toValidSVG } from 'helpers/SVGHelper'
 import Loading from '../generics/Loading'
 
 import { FaArrowLeft } from 'react-icons/fa6'
 import FontControls from '../viewer/components/FontControls/FontControls'
+import { isLocalFont } from 'helpers/FontHelper'
 
 const GlyphViewer = (): ReactElement => {
-  const { getFontFromFontName, getOpenTypeFont } = useFontHelper()
+  const { getFontFromFontName, getLocalOpenTypeFont, getGoogleOpenTypeFont } =
+    useFontHelper()
+
+  const navigate = useNavigate()
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [font, setFont] = useState<LocalFont | undefined>([] as LocalFont)
+  const [font, setFont] = useState<LocalFont | GoogleFont>()
   const [otFont, setOtFont] = useState<Font>()
   const [currentGlyph, setCurrentGlyph] = useState<string>('A')
 
-  const fontName = decodeURIComponent(useLocation().search.split('=')[1])
+  const params = useLocation().search.split('&')
+  const fontName = decodeURIComponent(params[0].split('=')[1])
+  const from = decodeURIComponent(params[1].split('=')[1]) as 'google' | 'local'
+
+  useEffect(() => {
+    setFont(getFontFromFontName(fontName, from))
+  }, [])
+
+  useEffect(() => {
+    setIsLoading(true)
+    if (font && isLocalFont(font)) {
+      getLocalOpenTypeFont(font).then(f => {
+        setIsLoading(false)
+        setOtFont(f)
+      })
+    } else if (font && !isLocalFont(font)) {
+      getGoogleOpenTypeFont(font).then(f => {
+        setIsLoading(false)
+        setOtFont(f)
+      })
+    } else {
+      setIsLoading(false)
+    }
+  }, [font])
 
   const handleMouseOver = (char: string): void => {
     setCurrentGlyph(char)
   }
-
-  useEffect(() => {
-    setFont(getFontFromFontName(fontName, 'local'))
-    console.log(getFontFromFontName(fontName, 'local'))
-  }, [fontName])
-
-  useEffect(() => {
-    setIsLoading(true)
-    if (font && font?.length !== 0) {
-      font[0].blob().then(b => {
-        getOpenTypeFont(b).then(f => {
-          setIsLoading(false)
-          setOtFont(f)
-        })
-      })
-    }
-  }, [font])
-
-  const navigate = useNavigate()
 
   return !isLoading ? (
     <div className="flex flex-col w-full">

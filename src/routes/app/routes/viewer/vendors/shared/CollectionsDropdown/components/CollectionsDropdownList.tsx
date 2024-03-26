@@ -4,26 +4,27 @@ import { AnimatePresence, motion } from 'framer-motion'
 import CollectionDropdownItem from './CollectionDropdownItem'
 import useCollectionsStore from 'stores/CollectionsStore'
 import useCollections from 'hooks/useCollections'
-import { type LocalFont } from 'types/FontTypes'
+import { type GoogleFont, type LocalFont } from 'types/FontTypes'
 import CollectionDropdownInput from './CollectionsDropdownInput'
+import { isLocalFont } from 'helpers/FontHelper'
 
 const CollectionsDropdownList = ({
   isOpen,
   setIsOpen,
   font,
 }: {
-  font: LocalFont
+  font: LocalFont | GoogleFont
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement | null => {
   const collections = useCollectionsStore(s => s.collections)
   const { toggleInCollection } = useCollections()
 
-  const handleItemClick = (collection: string, font: LocalFont): void => {
+  const handleItemClick = (collection: string, font: LocalFont | GoogleFont): void => {
     setIsOpen(false)
     toggleInCollection(collection, {
-      fontData: font,
-      from: 'local',
+      family: font,
+      from: isLocalFont(font) ? 'local' : 'google',
       date: new Date(),
     })
   }

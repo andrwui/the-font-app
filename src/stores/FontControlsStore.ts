@@ -106,3 +106,15 @@ export const useTextAlignStore = create<TextAlignStore>(set => ({
     set({ textAlign })
   },
 }))
+
+type FontFilterStore = {
+  filterValue: string
+  setFilterValue: (filterValue: string) => void
+}
+
+export const useFontFilterStore = create<FontFilterStore>(set => ({
+  filterValue: '',
+  setFilterValue: (filterValue: string) => {
+    set({ filterValue })
+  },
+}))

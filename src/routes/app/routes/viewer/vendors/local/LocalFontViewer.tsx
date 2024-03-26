@@ -8,9 +8,11 @@ import useSetLocalFonts from 'hooks/useSetFonts'
 import NotSupported from './components/NotSupported'
 import NotAccepted from './components/NotAccepted'
 import { usePolicyStore } from 'stores/PolicyStore'
+import { useFontFilterStore } from 'stores/FontControlsStore'
 
 const LocalFontViewer = (): ReactElement => {
-  const { filteredFonts, filterValue } = useLocalFontsStore()
+  const { filteredLocalFonts: filteredFonts } = useLocalFontsStore()
+  const { filterValue } = useFontFilterStore()
   const { isLoading } = useLocalFontsStore()
   const { hasAccepted, setHasAccepted } = usePolicyStore()
 

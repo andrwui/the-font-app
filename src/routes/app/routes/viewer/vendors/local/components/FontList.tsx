@@ -9,7 +9,7 @@ import GlyphButton from 'routes/app/routes/generics/Font/components/GlyphButton'
 import CollectionsDropdown from '../../shared/CollectionsDropdown/CollectionsDropdown'
 const FontList = (): ReactElement => {
   // Declare the stores
-  const { fonts, filteredFonts } = useLocalFontsStore()
+  const { localFonts: fonts, filteredLocalFonts: filteredFonts } = useLocalFontsStore()
 
   const fontsValues = Object.values(fonts)
   const filteredFontsValues = Object.values(filteredFonts)

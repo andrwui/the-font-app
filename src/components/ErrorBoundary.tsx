@@ -18,7 +18,6 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public static getDerivedStateFromError(error: Error): State {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true, error }
   }
 
@@ -35,7 +34,7 @@ class ErrorBoundary extends Component<Props, State> {
               <h1 className="text-5xl font-black">
                 Ooops... This shouldn&apos;t be happening...
               </h1>
-              <h2 className="text-2xl font-regular text-neutral-300">
+              <h2 className="text-2xl font-regular text-regular text-opacity-60">
                 Please,{' '}
                 <ActionText
                   className="font-bold text-regular"
@@ -58,14 +57,13 @@ class ErrorBoundary extends Component<Props, State> {
                 </Link>
                 {'. '}
                 Then,{' '}
-                <ActionText
+                <Link
                   className="font-bold text-regular"
-                  onClick={() => {
-                    window.location.reload()
-                  }}
+                  to="/"
+                  animated
                 >
                   reload the page
-                </ActionText>
+                </Link>
                 {'.'}
               </h2>
             </div>

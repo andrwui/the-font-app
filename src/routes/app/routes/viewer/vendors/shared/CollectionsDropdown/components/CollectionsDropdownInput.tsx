@@ -1,3 +1,4 @@
+import { isLocalFont } from 'helpers/FontHelper'
 import useCollections from 'hooks/useCollections'
 import {
   type Dispatch,
@@ -10,13 +11,13 @@ import {
 } from 'react'
 import { FaPlus } from 'react-icons/fa'
 import useCollectionsStore from 'stores/CollectionsStore'
-import { type LocalFont } from 'types/FontTypes'
+import { type GoogleFont, type LocalFont } from 'types/FontTypes'
 
 const CollectionDropdownInput = ({
   setIsOpen,
   font,
 }: {
-  font: LocalFont
+  font: LocalFont | GoogleFont
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }): ReactElement => {
   const collections = useCollectionsStore(s => s.collections)
@@ -25,8 +26,8 @@ const CollectionDropdownInput = ({
   const handleItemKeydown = (e: KeyboardEvent): void => {
     if (e.key === 'Enter') {
       toggleInCollection(inputValue, {
-        fontData: font,
-        from: 'local',
+        family: font,
+        from: isLocalFont(font) ? 'local' : 'google',
         date: new Date(),
       })
       setIsOpen(false)
