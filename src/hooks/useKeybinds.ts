@@ -4,6 +4,11 @@ import { useEffect } from 'react'
 const useKeybinds = (): void => {
   const keybinds = (e: KeyboardEvent): void => {
     // Ctrl + R for the replace bar
+    if (e.ctrlKey && e.key === 'f') {
+      e.preventDefault()
+      document.querySelector<HTMLInputElement>('#SearchBar')!.focus()
+    }
+
     if (e.ctrlKey && e.key === 'r') {
       e.preventDefault()
       document.querySelector<HTMLInputElement>('#ReplaceBar')!.focus()

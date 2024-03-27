@@ -8,10 +8,12 @@ import Test from './routes/tests/Tests'
 import Header from 'routes/header/Header'
 import Collections from './routes/collections/Collections'
 import useLoadLocalStorage from 'hooks/useLoadLocalStorage'
+import useLoadGoogleFonts from 'hooks/useLoadGoogleFonts'
 
 const AppLayout = (): ReactElement => {
   // Returns a wrapper of all the main panels of the application
   useLoadLocalStorage()
+  useLoadGoogleFonts()
   return (
     <div
       className="grid h-full w-full max-sm:grid-cols-1

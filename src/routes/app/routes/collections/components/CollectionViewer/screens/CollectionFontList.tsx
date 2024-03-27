@@ -1,55 +1,66 @@
 import Pill from 'components/Pill'
 import { isLocalFont } from 'helpers/FontHelper'
+import useFontHelper from 'hooks/useFontHelper'
 import { type ReactElement } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Virtuoso } from 'react-virtuoso'
 import FontContainer from 'routes/app/routes/generics/Font/FontContainer'
 import FontDisplay from 'routes/app/routes/generics/Font/components/FontDisplay'
 import FontTopRowContainer from 'routes/app/routes/generics/Font/components/FontTopRowContainer'
+import GoogleFontDisplay from 'routes/app/routes/viewer/vendors/google/GoogleFontDisplay'
 import useCollectionsStore from 'stores/CollectionsStore'
-import { type GoogleFont, type LocalFont } from 'types/FontTypes'
+import { useGoogleFontStore } from 'stores/GoogleFontsStore'
+import { useLocalFontsStore } from 'stores/LocalFontsStore'
 
 const CollectionFontList = (): ReactElement => {
   const collections = useCollectionsStore(s => s.collections)
-
   const url = useLocation().search
   const curCollection = decodeURIComponent(url.split('=')[1])
+  const { localFonts } = useLocalFontsStore()
+  const { googleFonts } = useGoogleFontStore()
+
+  const { getFontFromFontName } = useFontHelper()
+  const navigate = useNavigate()
+
+  if (!localFonts || !googleFonts) {
+    console.log('whatthefuck')
+    navigate('/', { replace: true })
+  }
 
   return (
-    <div className="h-full flex flex-col">
-      {collections[curCollection] &&
-        collections[curCollection].map((el, i) => {
-          let font: LocalFont | GoogleFont
-          if (isLocalFont(el.family)) {
-            font = el.family
-            return (
-              <FontContainer key={i}>
-                <FontTopRowContainer
-                  family={font[0].family}
-                  familyLength={font.length}
-                >
-                  <Pill>Local</Pill>
-                </FontTopRowContainer>
-                <FontDisplay font={font} />
-              </FontContainer>
-            )
-          } else if (!isLocalFont(el.family)) {
-            font = el.family
-            return (
-              <FontContainer key={i}>
-                <FontTopRowContainer
-                  family={font.family}
-                  familyLength={font.variants.length}
-                >
-                  <Pill>Google</Pill>
-                </FontTopRowContainer>
-                <FontDisplay font={font} />
-              </FontContainer>
-            )
-          } else {
-            return null
-          }
-        })}
-    </div>
+    <Virtuoso
+      className="h-full overflow-x-hidden"
+      totalCount={Object.values(collections[curCollection]).length}
+      itemContent={i => {
+        const font = getFontFromFontName(
+          Object.values(collections[curCollection])[i].family,
+          Object.values(collections[curCollection])[i].from,
+        )
+        console.log(font)
+        if (font && isLocalFont(font)) {
+          return (
+            <FontContainer key={i}>
+              <FontTopRowContainer
+                family={font[0].family}
+                familyLength={font.length}
+              >
+                <Pill>Local</Pill>
+              </FontTopRowContainer>
+              <FontDisplay font={font} />
+            </FontContainer>
+          )
+        } else if (font && !isLocalFont(font)) {
+          return (
+            <GoogleFontDisplay
+              fromPill
+              font={font}
+            />
+          )
+        } else {
+          return null
+        }
+      }}
+    />
   )
 }
 

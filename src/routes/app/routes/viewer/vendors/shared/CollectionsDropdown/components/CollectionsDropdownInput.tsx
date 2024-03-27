@@ -26,7 +26,7 @@ const CollectionDropdownInput = ({
   const handleItemKeydown = (e: KeyboardEvent): void => {
     if (e.key === 'Enter') {
       toggleInCollection(inputValue, {
-        family: font,
+        family: isLocalFont(font) ? font[0].family : font.family,
         from: isLocalFont(font) ? 'local' : 'google',
         date: new Date(),
       })

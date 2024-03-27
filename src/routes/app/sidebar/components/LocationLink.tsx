@@ -29,7 +29,7 @@ const LocationLink = ({
     >
       <Link
         to={to}
-        className={`grid aspect-square place-items-center rounded-md *:h-3/5 *:w-3/5 transition-all duration-75
+        className={`grid aspect-square place-items-center rounded-md w-full *:h-3/5 *:w-3/5 transition-all duration-75
         ${isCurrentRoute ? 'text-accent' : 'text-regular'}
         ${isCurrentRoute ? 'bg-accent' : 'bg-dark'}
         ${!isCurrentRoute ? 'hover:bg-light' : ''}

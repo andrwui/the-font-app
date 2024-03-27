@@ -3,7 +3,7 @@ import { type ReactElement, type ReactNode } from 'react'
 import { useTextAlignStore } from 'stores/FontControlsStore'
 
 type FontTopRowProps = {
-  children: ReactNode
+  children?: ReactNode
   family: string
   familyLength: number | string
 }

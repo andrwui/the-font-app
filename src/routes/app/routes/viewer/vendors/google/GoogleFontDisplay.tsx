@@ -12,34 +12,39 @@ import FontTopRowContainer from 'routes/app/routes/generics/Font/components/Font
 import { type GFItems, type GoogleFont } from 'types/FontTypes'
 import WebFont from 'webfontloader'
 import CollectionsDropdown from '../shared/CollectionsDropdown/CollectionsDropdown'
+import Pill from 'components/Pill'
+import DownloadButton from 'routes/app/routes/generics/Font/components/DownloadButton'
 
 const GoogleFontDisplay = ({
   font,
   setLoadedFonts,
   loadedFonts,
+  fromPill,
 }: {
   font: GoogleFont
-  setLoadedFonts: Dispatch<SetStateAction<GFItems>>
-  loadedFonts: GFItems
+  setLoadedFonts?: Dispatch<SetStateAction<GFItems>>
+  loadedFonts?: GFItems
+  fromPill?: boolean
 }): ReactElement => {
   const [loading, setLoading] = useState<boolean>()
-
-  useEffect(() => {
-    if (!loadedFonts.find(f => f === font)) {
-      WebFont.load({
-        google: {
-          families: [font.family],
-        },
-        loading: () => {
-          setLoading(true)
-        },
-        fontactive: () => {
-          setLoading(false)
-        },
-      })
-      setLoadedFonts([...loadedFonts, font])
-    }
-  }, [font])
+  if (loadedFonts && setLoadedFonts) {
+    useEffect(() => {
+      if (!loadedFonts.find(f => f === font)) {
+        WebFont.load({
+          google: {
+            families: [font.family],
+          },
+          loading: () => {
+            setLoading(true)
+          },
+          fontactive: () => {
+            setLoading(false)
+          },
+        })
+        setLoadedFonts([...loadedFonts, font])
+      }
+    }, [font])
+  }
 
   return (
     <FontContainer>
@@ -49,6 +54,8 @@ const GoogleFontDisplay = ({
       >
         <FavoriteButton font={font.family} />
         <CollectionsDropdown font={font} />
+        <DownloadButton font={font} />
+        {fromPill && <Pill>Google</Pill>}
       </FontTopRowContainer>
       {
         <FontDisplay

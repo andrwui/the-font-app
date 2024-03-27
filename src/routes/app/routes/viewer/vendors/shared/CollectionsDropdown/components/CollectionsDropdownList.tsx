@@ -23,7 +23,7 @@ const CollectionsDropdownList = ({
   const handleItemClick = (collection: string, font: LocalFont | GoogleFont): void => {
     setIsOpen(false)
     toggleInCollection(collection, {
-      family: font,
+      family: isLocalFont(font) ? font[0].family : font.family,
       from: isLocalFont(font) ? 'local' : 'google',
       date: new Date(),
     })

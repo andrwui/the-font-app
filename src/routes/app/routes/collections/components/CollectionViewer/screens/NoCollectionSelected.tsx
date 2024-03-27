@@ -1,10 +1,7 @@
 import Text from 'components/Text'
 import { type ReactElement } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const NoCollectionSelected = (): ReactElement => {
-  const navigate = useNavigate()
-
   return (
     <div className="h-full w-full grid place-items-center">
       <div className="flex flex-col items-center justify-center">
@@ -12,7 +9,7 @@ const NoCollectionSelected = (): ReactElement => {
           size={18}
           weight="400"
         >
-          Select one of your collection to manage them!
+          Select one of your collections to manage it!
         </Text>
       </div>
     </div>

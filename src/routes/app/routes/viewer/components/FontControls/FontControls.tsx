@@ -17,7 +17,6 @@ import { FaAlignCenter, FaAlignLeft, FaAlignRight } from 'react-icons/fa'
 import IFontSize from './icons/font_size.svg?react'
 import IFontWeight from './icons/font_weight.svg?react'
 import ILetterSpacing from './icons/letter_spacing.svg?react'
-import SearchButton from './components/SearchButton'
 
 const FontControls = (): ReactElement => {
   // Declare all the stores
@@ -85,7 +84,6 @@ const FontControls = (): ReactElement => {
   return (
     <div className="max-sm:hidden flex h-max w-full flex-col items-center justify-start bg-background lg:h-max lg:flex-row lg:justify-start lg:gap-10 pb-3">
       <div className="mb-4 flex gap-3 lg:mb-0">
-        <SearchButton />
         <Cycler
           options={italicOptions}
           onClick={setItalic}

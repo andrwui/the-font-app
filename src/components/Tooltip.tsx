@@ -48,7 +48,7 @@ const Tooltip = ({
     <div
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      className={`relative ${className ? className : ''}`}
+      className={`relative flex break-keep ${className ? className : ''}`}
     >
       {children}
       <Tooltip.Tooltip

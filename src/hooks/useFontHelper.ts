@@ -24,9 +24,6 @@ const useFontHelper = (): {
     }
     if (from === 'google') {
       match = googleFonts.find(i => {
-        console.log('i.family: ', i.family)
-        console.log('fontName: ', fontName)
-        console.log(i.family === fontName)
         return i.family === fontName
       })
     }
